@@ -1,0 +1,9 @@
+.agent
+.claude
+.firecrawl
+.next
+demo_components
+docs
+stitch-designs
+*.log
+*.tsbuildinfo

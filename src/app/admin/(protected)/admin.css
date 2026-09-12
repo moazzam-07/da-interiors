@@ -1,0 +1,77 @@
+:root {
+  --admin-primary: #006971;
+  --admin-primary-container: #48cad8;
+  --admin-secondary: #0040e0;
+  --admin-secondary-container: #2e5bff;
+  --admin-surface: #fcf9f8;
+  --admin-surface-container: #f0edec;
+  --admin-surface-container-low: #f6f3f2;
+  --admin-surface-container-lowest: #ffffff;
+  --admin-surface-container-high: #ebe7e7;
+  --admin-surface-container-highest: #e5e2e1;
+  --admin-on-surface: #1c1b1b;
+  --admin-on-surface-variant: #3b4949;
+  --admin-outline: #6b7a7a;
+  --admin-outline-variant: #bac9c9;
+  --admin-error: #ba1a1a;
+  --admin-gradient: linear-gradient(135deg, #006971 0%, #0040e0 100%);
+  --admin-shadow: 0 12px 40px 0 rgba(0, 19, 86, 0.06);
+  --font-manrope: 'Manrope', sans-serif;
+  --font-jakarta: 'Plus Jakarta Sans', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.admin-root {
+  display: flex;
+  min-height: 100vh;
+  background: var(--admin-surface);
+  font-family: var(--font-jakarta);
+}
+
+.admin-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin-left: 260px;
+  min-height: 100vh;
+}
+
+.admin-content {
+  flex: 1;
+  padding: 32px;
+  overflow-y: auto;
+}
+
+@media (max-width: 1024px) {
+  .admin-root {
+    flex-direction: column;
+  }
+  .admin-main {
+    margin-left: 0;
+    min-height: 100svh;
+  }
+  .admin-content {
+    padding: 24px 16px;
+    padding-top: 88px;
+  }
+}
+
+@media (max-width: 640px) {
+  .admin-content {
+    padding: 16px 12px;
+    padding-top: 80px;
+  }
+}
+
+body {
+  overflow-x: hidden;
+}
+
+body.mobile-sidebar-open {
+  overflow: hidden;
+}

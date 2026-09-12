@@ -1,0 +1,26 @@
+message 3:  WhatsApp Audio 2026-04-11 at 8.16.28 AM.ogg
+Original Transcript:
+
+یہ کوئی ڈاٹا ہے تھوڑا بہت دیکھیے بتائیے کچھ اور بھی چاہیے تو پھر ڈھونڈیں گے کریں گے
+
+English Translation:
+
+This is some data, please take a look and let me know. If anything else is needed, we will look for it and work on it.
+
+message 2:  WhatsApp Audio 2026-04-11 at 8.16.27 AM.ogg
+Original Transcript:
+
+کچھ اس میں اپ اپنا بھی ائیڈیا دیجیے کچھ ایڈ کیا کر سکتے ہیں کیسے کر سکتے ہیں کیا ہے نہیں ہے وہ بھی دیکھا جائے گا ٹھیک ہے اوکے جناب شکریہ اللہ حافظ
+
+English Translation:
+
+Please provide some of your own ideas on this as well—what we can add, how we can do it, what it is, and what it isn't, we will look into all of that too. Alright. Okay sir, thank you, Allah Hafiz.
+
+message 1:  WhatsApp Audio 2026-04-11 at 8.16.26 AM.ogg
+Original Transcript:
+
+السلام علیکم ورحمۃ اللہ وبرکاتہ آپ کیسے ہیں اللہ سے امید ہے اپ اچھے ہوں گے بہتر ہوں گے جزاک اللہ خیر بہت بہت شکریہ الحمدللہ یہ کمپنی پچھلے مطلب آٹھ یا نو سال سے رجسٹرڈ ہے اور یہ مینٹیننس کا کام کر رہی ہے جیسے کہ وہ ان کال ہے اے سی مینٹیننس ہے چاہے وہ ونڈو اے سی ہے سپلٹ اے سی ہے یا کیسٹ اے سی ہے یا چھوٹا سا پیکج اے سی ہے ساتھ میں فریج ہو گیا واشنگ مشین ہو گیا اوکے یہ ریپئرنگ کا کام ہے مطلب چھوٹے موٹے پارٹس لگانے ہوئے ان کے سرکٹ بورڈ ہے یا موٹر وائنڈنگ یہ سب ہے اس کے بعد اسے ابھی میں ایڈ کر رہا ہوں اس میں کلیننگ کا ہے بلڈنگ کلیننگ کا ہوتا ہے پیسٹ کنٹرول کا بھی ایڈ کریں گے چھوٹے موٹے فرنیچرز کے ہیں صوفہ کلیننگ ہوتا ہے ہوم کلیننگ ہو گیا کچھ چھوٹے موٹے پینٹنگ کے کام ریپئرنگ کے جو کام رہیں گے پلمبنگ کے رہیں گے یہ بھی ایڈ کریں گے اس کے اندر اور اس میں سیکٹر بڑھائیں گے ایک سیکٹر میں سوچ رہا تھا کہ ایک یہ آئی ٹی کا سیکٹر بھی بنا لیتے ہیں وہ ڈومین کے لیے ویب ڈیزائننگ کیونکہ یہاں لوکل میں تھوڑا سا بھی ایڈ کریں گے کمپنی کا رہے گا الریڈی کمپنی کا یہ جو نمبر ہے میرے پاس دوسرا نمبر ہے کمپنی کا یہ کور کیا ہوں میں لیا ہوں خدمہ کے نام سے رجسٹرڈ ہے تو اس پہ کالز اتے ہیں تو اس پہ ہم لوگ اپنا پرچار کریں گے کہ ہاں ہم لوگ ویب ڈیزائننگ کرتے ہیں ویب ہوسٹنگ کرتے ہیں وہ بھی ایک اپنا پارٹ ٹائم انکم رہے گا جو ٹوٹلی ہوگا تو وہ ڈائریکٹ اپ کے پاس رہے گا اس میں کچھ ایسا انکوائری ائے گا تو اس میں ایک چھوٹا سا کالم ڈال دیں گے تو میں اس لیے ائی ٹی کا کر رہا تھا کہ ائی ٹی کا کچھ بھی جو بھی ہوگا ادھر اپ دیکھ لیجیے گا باقی یہاں کا سبھی اؤٹ سورسنگ ایکچولی ابھی ہے مطلب پورا انکم اس کا جو بھی اے سی وغیرہ مینٹیننس کا ہے واشنگ مشین فریج کا وہ پورا اؤٹ سورسنگ ہے اس پہ سلو سلو کمپنی کا لیبر منگانا ہوگا ٹیکنیشن منگانا ہوگا فورمین ان کمپنی ویزا پہ پھر جا کے انکم جنریٹ ہوگا ابھی تو انکم جنریٹ ہے تھوڑا سا ہے مطلب ٹین پرسنٹ بھی نہیں بول سکتے ہیں لیکن جب اپنی کمپنی کا لیبر رہے گا تو تقریبا ٹونٹی پرسنٹ ٹونٹی فائو پرسنٹ تک جائے گا کیونکہ ابھی پرافٹ وہ تو اؤٹ سورسنگ پارٹی لے کے جا رہی ہے ٹھیک ہے تو بس یہ ہے اور اس کا ایک پروفائل چھوٹا سا ہے وہ میں اپ کو شیئر کرتا ہوں کچھ لوگو وغیرہ بھی ہیں بل بک وغیرہ میں سب بھیجتا ہوں اپ کو کیا کیا چاہیے بتائیے گا۔ اوکے بہت بہت شکریہ جزاک اللہ خیر السلام علیکم ورحمۃ اللہ وبرکاتہ
+
+English Translation:
+
+Assalamu Alaikum wa Rahmatullahi wa Barakatuh. How are you? I hope to Allah you are well and doing better. Jazakallah Khair, thank you very much. Alhamdulillah, this company has been registered for the last 8 or 9 years. It handles maintenance work, such as on-call AC maintenance—whether it's window ACs, split ACs, cassette ACs, or small package ACs—along with fridges and washing machines. Okay. This is repairing work, meaning installing small parts, circuit boards, or motor winding, all of this. After this, I am also adding cleaning services—building cleaning. We will also add pest control, small furniture, sofa cleaning, and home cleaning. Some small painting jobs, repairing jobs, and plumbing jobs, we will also add these. And we will expand sectors; I was thinking of creating an IT sector too for domains and web designing. Because we will advertise it locally, it will belong to the company. I already have another number for the company that I have acquired, it is registered under the name 'Khidma' [or similar]. So if calls come on that, we will advertise that we do web designing and web hosting, which will also be a part-time income. Whatever total comes in will be directly with you; if any inquiry comes, we'll put a small column for it. I was bringing up the IT side so that you can oversee whatever IT work comes up. As for the rest here, actually everything is currently outsourced. Meaning the entire income from AC maintenance, washing machines, and fridges is completely outsourced. Slowly, we have to bring the company's own labor, technicians, and foremen onto the company visa. Then income will be generated. Right now, the income generated is very little... you can't even call it 10%. But when we have our own company labor, it will go up to roughly 20% to 25% because right now the profit goes to the outsourcing party. Right? So this is it. There is a small profile for it, which I will share with you, along with some logos, bill books, etc. I will send everything to you. Let me know what you need. Okay, thank you very much. Jazakallah Khair. Assalamu Alaikum wa Rahmatullahi wa Barakatuh.
