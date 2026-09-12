@@ -19,9 +19,7 @@ import {
 interface ServiceItem {
   slug: string;
   name: string;
-  nameAr: string;
   desc: string;
-  descAr: string;
   duration: string;
   icon: LucideIcon;
   image: string;
@@ -29,9 +27,7 @@ interface ServiceItem {
 
 interface CategoryGroup {
   title: string;
-  titleAr: string;
   desc: string;
-  descAr: string;
   color: string;
   services: ServiceItem[];
 }
@@ -39,17 +35,13 @@ interface CategoryGroup {
 const categories: CategoryGroup[] = [
   {
     title: 'Architectural & Structural Planning',
-    titleAr: 'التخطيط المعماري وتعديل المساحات',
     desc: 'Comprehensive architectural layout redesign, gut renovations, and stone sanctuaries.',
-    descAr: 'إعادة تصميم المخططات المعمارية وتجديد الفيلات والشقق الفاخرة.',
     color: 'from-accent/20 to-primary/10',
     services: [
       {
         slug: 'residential-architecture',
         name: 'Full-Residence Architecture & Renovation',
-        nameAr: 'العمارة السكنية والتجديد الشامل',
         desc: 'Complete architectural layout planning, structural gut renovations, and spatial transformations for luxury residences.',
-        descAr: 'تخطيط وتجديد معماري شامل للفيلات الراقية وشقق البنتهاوس.',
         duration: 'Full Project',
         icon: House,
         image: '/images/da/hero1.jpg',
@@ -57,9 +49,7 @@ const categories: CategoryGroup[] = [
       {
         slug: 'kitchen-bath',
         name: 'Luxury Kitchen & Master Bath Sanctuaries',
-        nameAr: 'أجنحة المطابخ والحمامات الفاخرة',
         desc: 'Bookmatched Italian Calacatta marble, fluted custom cabinetry, concealed appliances, and spa-grade wet zones.',
-        descAr: 'رخام كلكتا إيطالي فاخر، خزائن مخصصة ومطابخ حديثة متكاملة.',
         duration: 'Suite Scope',
         icon: Droplet,
         image: '/images/da/kitchen1.jpg',
@@ -67,9 +57,7 @@ const categories: CategoryGroup[] = [
       {
         slug: 'custom-millwork',
         name: 'Custom Millwork & Architectural Joinery',
-        nameAr: 'النجارة المعمارية والخزائن المخصصة',
         desc: 'Bespoke walk-in dressing suites, floating stone hearths, fluted wall paneling, and concealed pivot doors.',
-        descAr: 'غرف ملابس فاخرة، تكسيات جدارية خشبية وأبواب مخفية بدقة متناهية.',
         duration: 'Bespoke Scope',
         icon: Hammer,
         image: '/images/da/millwork1.jpg',
@@ -78,17 +66,13 @@ const categories: CategoryGroup[] = [
   },
   {
     title: 'Interior Styling & Curation',
-    titleAr: 'التأثيث والتنسيق الداخلي',
     desc: 'Tactile natural textiles, fine art acquisitions, and experiential hospitality atmospheres.',
-    descAr: 'أقمشة طبيعية فاخرة، تنسيق الأعمال الفنية وتصميم الضيافة الراقية.',
     color: 'from-primary/20 to-accent/10',
     services: [
       {
         slug: 'bespoke-styling',
         name: 'Bespoke Interior Styling & Curation',
-        nameAr: 'التصميم والتأثيث الداخلي المخصص',
         desc: 'Custom furniture commissions, tactile bouclé & cashmere textiles, fine art curation, and white-glove finishing.',
-        descAr: 'قطع أثاث مصممة خصيصاً، أقمشة طبيعية فاخرة وتنسيق اللوحات الفنية.',
         duration: 'Turnkey Styling',
         icon: Sparkles,
         image: '/images/da/hero3.jpg',
@@ -96,9 +80,7 @@ const categories: CategoryGroup[] = [
       {
         slug: 'lighting-acoustics',
         name: 'Architectural Lighting & Ambient Design',
-        nameAr: 'تصميم الإضاءة المعمارية والأجواء',
         desc: 'Circadian lighting schemes, recessed cove details, sculptural artisan chandeliers, and architectural acoustics.',
-        descAr: 'مخططات إضاءة محيطية هادئة 2400K ومجسمات ضوئية فنية من أفضل المصممين.',
         duration: 'Lighting Plan',
         icon: Lightbulb,
         image: '/images/da/project3.jpg',
@@ -106,9 +88,7 @@ const categories: CategoryGroup[] = [
       {
         slug: 'hospitality-commercial',
         name: 'Boutique Hospitality & Commercial Spaces',
-        nameAr: 'مساحات الضيافة والمشاريع التجارية الراقية',
         desc: 'Atmospheric interior architecture and branding for luxury boutique hotels, fine dining destinations, and founder suites.',
-        descAr: 'تصميم هوية معمارية فريدة للمطاعم الفاخرة والفنادق والمكاتب التنفيذية.',
         duration: 'Commercial Scope',
         icon: Award,
         image: '/images/da/hospitality1.jpg',
@@ -117,17 +97,13 @@ const categories: CategoryGroup[] = [
   },
   {
     title: 'Visualization & Project Governance',
-    titleAr: 'المحاكاة ثلاثية الأبعاد وإدارة التنفيذ',
     desc: 'Digital twin pre-visualization, laser site scanning, and complete turnkey white-glove delivery.',
-    descAr: 'محاكاة فائقة الدقة للضوء والمواد، وإشراف متكامل على البناء والتسليم.',
     color: 'from-accent/20 to-primary/10',
     services: [
       {
         slug: '3d-visualization',
         name: '3D Photorealistic Pre-Visualization & VR',
-        nameAr: 'المحاكاة ثلاثية الأبعاد والواقع الافتراضي',
         desc: 'Hyper-accurate 8K digital twins, daylight simulation studies, and interactive VR walkthroughs before breaking ground.',
-        descAr: 'رؤية مشروعك بدقة 8K مع محاكاة واقعية لحركة الشمس والمواد قبل البدء.',
         duration: 'Digital Twin',
         icon: Camera,
         image: '/images/da/project1.jpg',
@@ -135,9 +111,7 @@ const categories: CategoryGroup[] = [
       {
         slug: 'turnkey-stewardship',
         name: 'Turnkey Project Stewardship & Handover',
-        nameAr: 'الإشراف الشامل والتسليم على المفتاح',
         desc: 'From structural blueprint and marble procurement to contractor oversight, white-glove installation, and champagne reveal.',
-        descAr: 'إدارة متكاملة لكل مقاولي البناء والتشطيب حتى تسليم المنزل جاهزاً للعيش.',
         duration: 'Turnkey Handover',
         icon: Compass,
         image: '/images/da/project7.jpg',
@@ -170,7 +144,7 @@ export function ServicesClientPage() {
           >
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-surface-container-low border border-border text-xs sm:text-sm font-semibold text-accent mb-6 tracking-wide uppercase">
               <Sparkles className="w-3.5 h-3.5" />
-              <span>Studio Disciplines / مجالات العمل</span>
+              <span>Studio Disciplines & Services</span>
             </div>
             
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-heading font-extrabold tracking-tight text-foreground leading-[1.1] mb-6">
@@ -179,10 +153,6 @@ export function ServicesClientPage() {
                 Architectural Services
               </span>
             </h1>
-            
-            <h2 className="text-xl sm:text-2xl font-heading font-semibold text-muted-foreground/80 leading-relaxed mb-6 max-w-[28ch] mx-auto" dir="rtl">
-              خدمات هندسية وتصميمية متكاملة مصممة لأصحاب الذوق الرفيع
-            </h2>
 
             <p className="text-base sm:text-lg text-muted-foreground leading-relaxed max-w-xl mx-auto font-normal">
               Explore our full suite of interior architecture and turnkey curation services designed to transform residential and commercial properties into sanctuaries of calm.
@@ -198,23 +168,13 @@ export function ServicesClientPage() {
             {categories.map((cat, catIdx) => (
               <div key={cat.title} className="space-y-8">
                 {/* Category Header */}
-                <div className="flex flex-col md:flex-row md:items-end justify-between border-b border-border/60 pb-6 gap-4">
-                  <div>
-                    <h3 className="text-2xl sm:text-3xl font-heading font-bold text-foreground">
-                      {cat.title}
-                    </h3>
-                    <p className="text-sm text-muted-foreground mt-1">
-                      {cat.desc}
-                    </p>
-                  </div>
-                  <div className="text-right" dir="rtl">
-                    <h4 className="text-lg font-heading font-semibold text-foreground">
-                      {cat.titleAr}
-                    </h4>
-                    <p className="text-xs text-muted-foreground font-heading">
-                      {cat.descAr}
-                    </p>
-                  </div>
+                <div className="border-b border-border/60 pb-6">
+                  <h3 className="text-2xl sm:text-3xl font-heading font-bold text-foreground">
+                    {cat.title}
+                  </h3>
+                  <p className="text-sm text-muted-foreground mt-1 max-w-2xl">
+                    {cat.desc}
+                  </p>
                 </div>
 
                 {/* Services Grid inside Category */}
@@ -255,12 +215,9 @@ export function ServicesClientPage() {
                           </div>
 
                           {/* Titles */}
-                          <h4 className="text-xl font-bold font-heading text-foreground mb-1 group-hover:text-accent transition-colors">
+                          <h4 className="text-xl font-bold font-heading text-foreground mb-3 group-hover:text-accent transition-colors">
                             {svc.name}
                           </h4>
-                          <span className="font-bold text-muted-foreground/80 text-xs block mb-3 font-heading" dir="rtl">
-                            {svc.nameAr}
-                          </span>
 
                           {/* Descriptions */}
                           <p className="text-sm text-muted-foreground leading-relaxed mb-4 font-normal">
@@ -274,7 +231,7 @@ export function ServicesClientPage() {
                             onClick={() => openBooking(svc.slug)}
                             className="w-full flex h-11 cursor-pointer select-none items-center justify-center gap-2 rounded-xl bg-primary text-xs font-bold text-primary-foreground shadow-md hover:bg-primary/90 transition-all duration-300"
                           >
-                            Book Consultation / احجز استشارة
+                            Schedule Consultation
                             <ArrowRight className="w-3.5 h-3.5 text-accent" />
                           </button>
                           <Link

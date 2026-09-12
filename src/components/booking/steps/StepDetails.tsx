@@ -119,7 +119,7 @@ export function StepDetails() {
                 type="email"
                 value={state.email}
                 onChange={e => setField('email', e.target.value)}
-                placeholder="ahmed@example.com"
+                placeholder="client@example.com"
                 className="w-full bg-card border border-border/40 rounded-xl pl-11 pr-4 py-3.5 text-sm font-medium text-foreground placeholder:text-muted-foreground/50 focus:ring-2 focus:ring-primary/20 focus:border-primary/30 transition-all outline-none"
               />
             </div>
@@ -128,17 +128,14 @@ export function StepDetails() {
 
         {/* Address */}
         <div className="space-y-1.5">
-          <div className="flex justify-between items-center">
-            <label className="text-xs font-bold text-muted-foreground uppercase tracking-widest">Address / Area (Anywhere in Oman)</label>
-            <span className="text-[10px] font-bold text-primary font-heading" dir="rtl">في جميع أنحاء عمان</span>
-          </div>
+          <label className="text-xs font-bold text-muted-foreground uppercase tracking-widest block">Property Address / City</label>
           <div className="relative">
             <MapPin className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground pointer-events-none" />
             <input
               type="text"
               value={state.address}
               onChange={e => setField('address', e.target.value)}
-              placeholder="e.g. Al Khuwair, Muscat or North Awqad, Salalah"
+              placeholder="e.g. Alipore, Ballygunge, Salt Lake, or New Town, Kolkata"
               className="w-full bg-card border border-border/40 rounded-xl pl-11 pr-4 py-3.5 text-sm font-medium text-foreground placeholder:text-muted-foreground/50 focus:ring-2 focus:ring-primary/20 focus:border-primary/30 transition-all outline-none"
             />
           </div>
@@ -146,17 +143,14 @@ export function StepDetails() {
 
         {/* Landmark */}
         <div className="space-y-1.5">
-          <div className="flex justify-between items-center">
-            <label className="text-xs font-bold text-muted-foreground uppercase tracking-widest">Nearby Landmark (Optional)</label>
-            <span className="text-[10px] font-bold text-primary font-heading" dir="rtl">المعلم القريب (مبنى، مسجد أو مجمع)</span>
-          </div>
+          <label className="text-xs font-bold text-muted-foreground uppercase tracking-widest block">Nearby Landmark (Optional)</label>
           <div className="relative">
             <Building2 className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground pointer-events-none" />
             <input
               type="text"
               value={landmark}
               onChange={e => setLandmark(e.target.value)}
-              placeholder="e.g. Near Al Ameen Mosque, Grand Mall, or famous landmark"
+              placeholder="e.g. Near South City, Forum Mall, or prominent landmark"
               className="w-full bg-card border border-border/40 rounded-xl pl-11 pr-4 py-3.5 text-sm font-medium text-foreground placeholder:text-muted-foreground/50 focus:ring-2 focus:ring-primary/20 focus:border-primary/30 transition-all outline-none"
             />
           </div>

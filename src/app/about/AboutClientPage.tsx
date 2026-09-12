@@ -14,27 +14,21 @@ const coreValues = [
   {
     icon: Layers,
     title: 'Noble Materiality',
-    titleAr: 'أصالة المواد الطبيعية',
     desc: 'Sourcing authentic Italian travertine, French smoked oak, Belgian linen, and raw bronze that age gracefully over generations.',
-    descAr: 'نختار أجود أنواع الترافرتين الإيطالي، وخشب البلوط الفرنسي، والكتان البلجيكي، لتدوم أصالتها عبر الأجيال.',
     color: 'from-accent/20 to-primary/10',
     glow: 'hover:shadow-accent/10',
   },
   {
     icon: Compass,
     title: 'Architectural Restraint',
-    titleAr: 'النقاء والتوازن المعماري',
     desc: 'Quiet luxury is about subtraction. We optimize negative space, natural sightlines, and acoustic calm.',
-    descAr: 'الفخامة الهادئة تعتمد على البساطة النقية، وتوظيف الإضاءة الطبيعية والهدوء الصوتي.',
     color: 'from-primary/20 to-accent/10',
     glow: 'hover:shadow-primary/10',
   },
   {
     icon: ShieldCheck,
     title: 'Turnkey Stewardship',
-    titleAr: 'إشراف وتسليم متكامل',
     desc: 'Zero client friction. We manage every structural engineer, custom artisan joiner, and stone shipment from blueprint to handover.',
-    descAr: 'إدارة متكاملة لكل مرحلة من مراحل البناء والتشطيب دون أي أعباء على العميل.',
     color: 'from-accent/20 to-primary/10',
     glow: 'hover:shadow-accent/10',
   },
@@ -62,7 +56,7 @@ export function AboutClientPage() {
           >
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-surface-container-low border border-border text-xs sm:text-sm font-semibold text-accent mb-6 tracking-wide uppercase">
               <Sparkles className="w-3.5 h-3.5" />
-              <span>Studio Heritage / قصة الاستوديو</span>
+              <span>Studio Heritage & Vision</span>
             </div>
             
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-heading font-extrabold tracking-tight text-foreground leading-[1.1] mb-6">
@@ -71,10 +65,6 @@ export function AboutClientPage() {
                 Quiet Luxury
               </span>
             </h1>
-            
-            <h2 className="text-xl sm:text-2xl font-heading font-semibold text-muted-foreground/80 leading-relaxed mb-6 max-w-[28ch] mx-auto" dir="rtl">
-              صياغة مساحات معمارية تتجاوز الزمن بروح الفخامة الهادئة
-            </h2>
 
             <p className="text-base sm:text-lg text-muted-foreground leading-relaxed max-w-xl mx-auto font-normal">
               DA Interiors was founded to create private residences and boutique hospitality spaces that celebrate tactile natural materials and effortless spatial harmony.
@@ -115,7 +105,7 @@ export function AboutClientPage() {
                           Est. 2018
                         </div>
                         <div className="text-[11px] font-bold text-muted-foreground uppercase tracking-wider mt-0.5">
-                          Studio Established / سنة التأسيس
+                          Studio Established
                         </div>
                       </div>
                       <div className="h-10 w-px bg-border/60 hidden sm:block" />
@@ -124,7 +114,7 @@ export function AboutClientPage() {
                           180+ Bespoke Residences
                         </div>
                         <p className="text-xs text-muted-foreground mt-0.5">
-                          Turnkey Private Commissions / مشاريع سكنية خاصة
+                          Turnkey Private Commissions
                         </p>
                       </div>
                     </div>
@@ -134,7 +124,7 @@ export function AboutClientPage() {
               <div className="absolute -bottom-4 -right-4 w-32 h-32 rounded-3xl bg-gradient-to-br from-accent to-primary opacity-20 -z-10 blur-sm" />
             </motion.div>
 
-            {/* Right: Bilingual Narrative */}
+            {/* Right: Narrative */}
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -144,7 +134,7 @@ export function AboutClientPage() {
             >
               <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-surface-container-low border border-border text-xs font-semibold text-accent uppercase tracking-wide">
                 <Compass className="w-3.5 h-3.5" />
-                <span>Our Philosophy / فلسفتنا</span>
+                <span>Our Philosophy</span>
               </div>
 
               {/* English Narrative */}
@@ -155,17 +145,6 @@ export function AboutClientPage() {
                 </p>
                 <p>
                   Every commission is handled with white-glove stewardship. We take on a limited number of residences each year to ensure principal-led design, flawless construction quality, and absolute peace of mind for our clients.
-                </p>
-              </div>
-
-              {/* Divider */}
-              <div className="w-full h-px bg-border/60" />
-
-              {/* Arabic Narrative */}
-              <div className="space-y-4 text-muted-foreground/90 leading-loose text-right" dir="rtl">
-                <h3 className="text-xl font-bold text-foreground font-heading">فلسفة التصميم المعماري</h3>
-                <p className="font-heading">
-                  نؤمن في استوديو دي إيه إنتيريرز بأن الفخامة الحقيقية لا تكمن في الزخارف الزائدة، بل في التناغم العميق بين المواد النبيلة كالحجر الطبيعي والخشب المعتق، ودقة التفاصيل المصنوعة خصيصاً لكل عميل.
                 </p>
               </div>
             </motion.div>
@@ -195,10 +174,7 @@ export function AboutClientPage() {
                   <val.icon className="w-6 h-6 text-accent" />
                 </div>
                 <h3 className="text-xl font-heading font-bold text-foreground mb-3">{val.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed mb-4">{val.desc}</p>
-                <p className="text-xs text-muted-foreground/80 leading-relaxed text-right font-heading" dir="rtl">
-                  {val.descAr}
-                </p>
+                <p className="text-sm text-muted-foreground leading-relaxed font-normal">{val.desc}</p>
               </div>
             ))}
           </div>

@@ -235,20 +235,20 @@ export function Footer() {
                     {activeLegalModal === 'privacy' ? (
                       <>
                         <ShieldCheck className="w-3.5 h-3.5" />
-                        <span>Privacy Promise / عهد الخصوصية</span>
+                        <span>Privacy & Discretion</span>
                       </>
                     ) : (
                       <>
                         <Scale className="w-3.5 h-3.5" />
-                        <span>Terms of Trust / ميثاق الخدمة</span>
+                        <span>Terms of Engagement</span>
                       </>
                     )}
                   </div>
                   <h3 className="text-xl sm:text-2xl font-heading font-extrabold text-foreground tracking-tight leading-snug">
-                    {activeLegalModal === 'privacy' ? 'Our Sincere Promise' : 'Our Simple Principles'}
+                    {activeLegalModal === 'privacy' ? 'Client Discretion & Confidentiality' : 'Architectural Standards & Terms'}
                   </h3>
                   <h4 className="text-sm font-medium text-muted-foreground mt-0.5 font-heading">
-                    {activeLegalModal === 'privacy' ? 'التزامنا الصادق بالخصوصية' : 'مبادئ تعاملنا البسيطة'}
+                    {activeLegalModal === 'privacy' ? 'Our unconditional commitment to client privacy' : 'Clear communication and professional craftsmanship'}
                   </h4>
                 </div>
                 <button
@@ -266,19 +266,17 @@ export function Footer() {
                     <p className="text-left font-medium">
                       Your trust is our greatest asset. At DA Interiors, we do not track you, sell your information, or compromise your confidentiality. We collect only the minimum details required to deliver bespoke architectural and interior design services with discretion, respect, and complete integrity.
                     </p>
-                    <div className="w-full h-px bg-border/40 my-4" />
-                    <p className="text-right font-heading leading-loose" dir="rtl">
-                      ثقتكم هي أهم ما نملك. في خدمة، لا نقوم بتتبعكم أو بيع معلوماتكم أو المساومة على ثقتكم. نجمع فقط الحد الأدنى من التفاصيل اللازمة لتقديم رعاية منزلية ممتازة إلى عتبة داركم بصدق واحترام وسرية تامة.
+                    <p className="text-left text-sm text-muted-foreground">
+                      All floorplans, material specs, site photography, and financial arrangements remain strictly confidential between the client and our studio leadership.
                     </p>
                   </>
                 ) : (
                   <>
                     <p className="text-left font-medium">
-                      We believe in honest work, clear communication, and mutual respect. Our terms are simple: we promise to treat your home with the utmost care, use skilled hands, and deliver the services you expect. In return, we ask for your respect toward our hard-working team. Any issues will be resolved with fairness and goodwill.
+                      We believe in transparent scopes, milestone accountability, and uncompromising craftsmanship. Our terms are straightforward: we commit to principal-led design stewardship, high-tolerance artisan millwork, and dedicated project management from conception to white-glove handover.
                     </p>
-                    <div className="w-full h-px bg-border/40 my-4" />
-                    <p className="text-right font-heading leading-loose" dir="rtl">
-                      نؤمن بالعمل المخلص، والتواصل الواضح، والاحترام المتبادل. شروطنا بسيطة: نعدكم بمعاملة منزلكم بأقصى درجات العناية، والاستعانة بأيدٍ ماهرة، وتقديم الخدمات التي تتوقعونها. وفي المقابل، نرجو منكم احترام فريقنا المجتهد. وسيتم حل أي إشكالية بالإنصاف وحسن النية.
+                    <p className="text-left text-sm text-muted-foreground">
+                      All client agreements are governed by fixed milestone deliverables, warranty guarantees on joinery and finishes, and collaborative design reviews.
                     </p>
                   </>
                 )}
@@ -287,7 +285,7 @@ export function Footer() {
               {/* Footer */}
               <div className="mt-8 pt-4 border-t border-border/40 text-center relative z-10 flex items-center justify-center gap-2 text-xs text-muted-foreground font-medium">
                 <Heart className="w-3.5 h-3.5 text-primary fill-primary/20" />
-                <span>Omani Hospitality & Premium Care</span>
+                <span>DA Interiors • Kolkata, West Bengal</span>
               </div>
             </motion.div>
           </div>

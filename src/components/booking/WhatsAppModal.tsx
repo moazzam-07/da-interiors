@@ -26,35 +26,29 @@ const WhatsAppIcon = (props: React.HTMLAttributes<SVGElement>) => (
 const channels = [
   {
     name: 'Private Client Concierge',
-    nameAr: 'استفسارات العملاء الخاصة',
-    number: '72740404',
-    subtitle: 'Residential commissions & private consultations',
-    subtitleAr: 'المشاريع السكنية والاستشارات الخاصة',
+    number: '919830000000',
+    subtitle: 'Residential commissions & private design consultations',
     icon: ShieldCheck,
-    badge: 'Concierge / خدمة العملاء',
+    badge: 'VIP Concierge',
     color: 'from-accent/20 to-primary/10',
     hoverGlow: 'hover:shadow-accent/15',
   },
   {
     name: 'Lead Architect & Studio Director',
-    nameAr: 'المعماري الرئيسي وإدارة الاستوديو',
-    number: '95964248',
+    number: '919830000001',
     subtitle: 'Major architectural renovations & commercial briefs',
-    subtitleAr: 'المشاريع المعمارية الكبرى والمساحات التجارية',
     icon: MapPin,
-    badge: 'Studio Director / إدارة المشاريع',
+    badge: 'Studio Director',
     color: 'from-primary/20 to-accent/10',
     hoverGlow: 'hover:shadow-primary/15',
     isManager: true,
   },
   {
     name: 'Studio Email Inquiries',
-    nameAr: 'البريد الإلكتروني للاستوديو',
     email: 'concierge@dainteriors.com',
-    subtitle: 'Press, portfolio portfolios & official requests',
-    subtitleAr: 'الصحافة والمراسلات الرسمية',
+    subtitle: 'Press, architectural portfolios & official requests',
     icon: Mail,
-    badge: 'Email / البريد',
+    badge: 'Direct Email',
     color: 'from-accent/15 to-primary/10',
     hoverGlow: 'hover:shadow-accent/15',
     isEmail: true,
@@ -117,13 +111,13 @@ export function WhatsAppModal() {
               <div className="flex-1 pr-6 text-left">
                 <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#25D366]/10 text-[#23b33a] text-[11px] font-bold uppercase tracking-wider mb-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#25D366] animate-pulse" />
-                  Live Chat / خدمة المحادثة
+                  Live Concierge Chat
                 </div>
                 <h3 className="text-xl sm:text-2xl font-heading font-extrabold text-foreground tracking-tight leading-snug">
                   DA Interiors Concierge
                 </h3>
                 <h4 className="text-sm font-medium text-muted-foreground mt-0.5 font-heading">
-                  خدمة استشارات التصميم الداخلي
+                  Bespoke Interior Consultations & Private Commissions
                 </h4>
               </div>
               <button
@@ -139,7 +133,7 @@ export function WhatsAppModal() {
               {channels.map((chan) => (
                 <a
                   key={chan.isEmail ? chan.email : chan.number}
-                  href={chan.isEmail ? `mailto:${chan.email}` : `https://wa.me/968${chan.number}`}
+                  href={chan.isEmail ? `mailto:${chan.email}` : `https://wa.me/${chan.number}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={closeWhatsApp}
@@ -159,7 +153,7 @@ export function WhatsAppModal() {
 
                   {/* Info */}
                   <div className="flex-1 min-w-0 pr-2">
-                    <div className="flex items-center justify-between gap-2 mb-0.5">
+                    <div className="flex items-center justify-between gap-2 mb-1">
                       <span className="font-bold text-foreground text-sm group-hover:text-primary transition-colors block truncate">
                         {chan.name}
                       </span>
@@ -167,14 +161,8 @@ export function WhatsAppModal() {
                         {chan.badge}
                       </span>
                     </div>
-                    <span className="font-bold text-muted-foreground/90 text-xs block mb-1.5 font-heading">
-                      {chan.nameAr}
-                    </span>
-                    <span className="text-[11px] text-muted-foreground leading-relaxed block group-hover:text-foreground/80 transition-colors">
+                    <span className="text-xs text-muted-foreground leading-relaxed block group-hover:text-foreground/80 transition-colors">
                       {chan.subtitle}
-                    </span>
-                    <span className="text-[10px] text-muted-foreground/75 leading-relaxed block font-heading">
-                      {chan.subtitleAr}
                     </span>
                   </div>
 
@@ -195,7 +183,7 @@ export function WhatsAppModal() {
             {/* Footer note */}
             <div className="mt-6 pt-4 border-t border-border/40 text-center relative z-10 flex items-center justify-center gap-2 text-xs text-muted-foreground font-medium">
               <Heart className="w-3.5 h-3.5 text-primary fill-primary/20" />
-              <span>Omani Hospitality & Premium Care</span>
+              <span>DA Interiors • Bespoke Architectural Living</span>
             </div>
           </motion.div>
         </div>
