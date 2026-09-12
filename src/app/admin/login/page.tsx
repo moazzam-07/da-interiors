@@ -7,6 +7,8 @@ import { Eye, EyeOff, AlertCircle } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import '../(protected)/admin.css';
 
+export const dynamic = 'force-dynamic';
+
 export default function AdminLoginPage() {
   const router = useRouter();
   const supabase = createClient();
