@@ -189,17 +189,17 @@ export function CostEstimatorModal() {
             </div>
           </div>
 
-          {/* Real-time Dynamic Price Bar (Visible during Steps 1-4) */}
+          {/* Configuration Status Bar (No premature amounts) */}
           {step < 5 && (
             <div className="px-6 py-2.5 bg-gradient-to-r from-accent/10 via-surface-container-low to-primary/10 border-b border-border/60 flex items-center justify-between text-xs">
               <div className="flex items-center gap-2">
-                <span className="text-muted-foreground font-medium">Live Estimated Budget:</span>
-                <span className="font-extrabold text-foreground text-sm font-heading tracking-tight">
-                  {formatINR(estimate.minCostLakhs)} – {formatINR(estimate.maxCostLakhs)}
+                <span className="text-muted-foreground font-medium">Selected Parameters:</span>
+                <span className="font-bold text-foreground text-xs sm:text-sm font-heading tracking-tight">
+                  {selectedConfig.name} • {sqft.toLocaleString('en-IN')} sq.ft
                 </span>
               </div>
               <span className="text-[11px] text-accent font-semibold hidden md:inline-block">
-                {selectedConfig.name} • {sqft.toLocaleString('en-IN')} sq.ft • {selectedTier.name}
+                {selectedScope.name} • {selectedTier.name}
               </span>
             </div>
           )}
@@ -333,9 +333,11 @@ export function CostEstimatorModal() {
                               </span>
                             )}
                           </div>
-                          <div className="text-xs sm:text-sm font-bold text-accent font-heading">
-                            ₹{tier.minRatePerSqft} – ₹{tier.maxRatePerSqft} / sq.ft
-                          </div>
+                          <span className="text-xs font-semibold text-accent uppercase tracking-wider bg-surface-container px-3 py-1 rounded-full border border-accent/30">
+                            {tier.id === 'essential' && 'Standard Specification'}
+                            {tier.id === 'signature' && 'Architectural Grade'}
+                            {tier.id === 'ultra-luxe' && 'Artisan Bespoke'}
+                          </span>
                         </div>
 
                         <p className="text-xs text-muted-foreground mb-4">{tier.tagline}</p>
@@ -362,7 +364,7 @@ export function CostEstimatorModal() {
               </div>
             )}
 
-            {/* ─── STEP 4: CARPET AREA & LIVE RECALCULATION ─── */}
+            {/* ─── STEP 4: CARPET AREA & ESTIMATE CALIBRATION ─── */}
             {step === 4 && (
               <div className="space-y-6">
                 <div>
@@ -408,26 +410,29 @@ export function CostEstimatorModal() {
                   </div>
                 </div>
 
-                {/* Live Real-Time Cost Card */}
+                {/* Specification Summary Card (No premature price numbers) */}
                 <div className="p-6 rounded-2xl border border-accent/40 bg-gradient-to-br from-surface-container-low via-background to-surface-container-low shadow-xl shadow-accent/5 space-y-4">
                   <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-2">
                     <div>
                       <span className="text-xs font-bold uppercase tracking-wider text-accent block mb-1">
-                        Calculated Investment Range
+                        Custom Project Specification Configured
                       </span>
-                      <div className="text-3xl sm:text-4xl font-extrabold font-heading text-foreground tracking-tight">
-                        {formatINR(estimate.minCostLakhs)} – {formatINR(estimate.maxCostLakhs)}
+                      <div className="text-2xl sm:text-3xl font-extrabold font-heading text-foreground tracking-tight">
+                        Estimate Ready for {selectedConfig.name}
                       </div>
+                      <p className="text-xs text-muted-foreground mt-1">
+                        {sqft.toLocaleString('en-IN')} sq.ft • {selectedTier.name} • {selectedScope.name}
+                      </p>
                     </div>
-                    <p className="text-[11px] text-muted-foreground">
-                      *Estimated turn-key budget for Kolkata residential standards
-                    </p>
+                    <span className="px-3 py-1.5 rounded-full bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 text-xs font-bold border border-emerald-500/30">
+                      ✓ Calculation Complete
+                    </span>
                   </div>
 
                   {/* Component Breakdown Bars */}
                   <div className="pt-4 border-t border-border/70 space-y-2.5">
                     <span className="text-xs font-bold text-foreground block">
-                      Estimated Cost Allocation Breakdown:
+                      Architectural Allocation Weightage:
                     </span>
                     <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs">
                       <div className="p-3 rounded-xl bg-surface-container border border-border/60">
@@ -461,27 +466,27 @@ export function CostEstimatorModal() {
                     <div className="p-5 rounded-2xl bg-accent/10 border border-accent/40 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                       <div>
                         <span className="text-xs font-bold uppercase tracking-widest text-accent block mb-0.5">
-                          Your Configured Estimate
+                          Personalized Blueprint &amp; Quotation
                         </span>
-                        <h4 className="text-2xl sm:text-3xl font-extrabold font-heading text-foreground">
-                          {formatINR(estimate.minCostLakhs)} – {formatINR(estimate.maxCostLakhs)}
+                        <h4 className="text-xl sm:text-2xl font-extrabold font-heading text-foreground">
+                          {selectedConfig.name} • {sqft.toLocaleString('en-IN')} sq.ft
                         </h4>
                         <p className="text-xs text-muted-foreground mt-1">
-                          {selectedConfig.name} • {sqft.toLocaleString('en-IN')} sq.ft • {selectedTier.name} • {selectedScope.name}
+                          {selectedTier.name} • {selectedScope.name}
                         </p>
                       </div>
                       <div className="hidden sm:block text-right">
-                        <span className="text-[11px] font-bold text-muted-foreground uppercase">Includes</span>
-                        <p className="text-xs font-semibold text-foreground">10-Year Warranty & Site Stewardship</p>
+                        <span className="text-[11px] font-bold text-muted-foreground uppercase">Protection</span>
+                        <p className="text-xs font-semibold text-foreground">10-Year Warranty &amp; Site Stewardship</p>
                       </div>
                     </div>
 
                     <div className="space-y-1">
                       <h4 className="text-sm font-bold font-heading text-foreground">
-                        Where should we send your itemized room-by-room blueprint & quotation?
+                        Where should we send your itemized room-by-room quotation?
                       </h4>
                       <p className="text-xs text-muted-foreground">
-                        Direct connection to our Lead Architect via WhatsApp. Zero unsolicited spam.
+                        Instant calculation delivered straight to your WhatsApp. Connect directly with our Lead Architect.
                       </p>
                     </div>
 
@@ -585,12 +590,10 @@ export function CostEstimatorModal() {
 
                     <div className="space-y-2">
                       <h4 className="text-2xl font-extrabold font-heading text-foreground">
-                        Estimate Ready & Formatted!
+                        Estimate Ready &amp; Sent!
                       </h4>
-                      <p className="text-sm text-muted-foreground max-w-md mx-auto leading-relaxed">
-                        We have prepared your detailed specification for{' '}
-                        <strong className="text-foreground">{formatINR(estimate.minCostLakhs)} – {formatINR(estimate.maxCostLakhs)}</strong>.
-                        If WhatsApp didn&apos;t open automatically, click the button below to connect with our Lead Architect.
+                      <p className="text-sm text-muted-foreground max-w-md mx-auto leading-relaxed font-normal">
+                        Your custom interior specification for your <strong className="text-foreground">{selectedConfig.name} ({sqft.toLocaleString('en-IN')} sq.ft)</strong> has been prepared. If WhatsApp didn&apos;t open automatically, click the button below to connect directly with our Lead Architect.
                       </p>
                     </div>
 
