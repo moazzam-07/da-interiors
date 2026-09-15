@@ -39,11 +39,11 @@ export function CostEstimatorSection() {
                 </div>
 
                 <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold font-heading text-foreground tracking-tight leading-[1.2]">
-                  Plan Your Interior Investment With Complete Architectural Clarity.
+                  Know Your Interior Budget in 60 Seconds
                 </h2>
 
                 <p className="text-sm sm:text-base text-muted-foreground leading-relaxed font-normal">
-                  Planning a residential flat, luxury villa in Alipore, or a commercial headquarters in Salt Lake? Calibrate your budget from <strong>200 sq.ft upwards</strong> with material transparency, layout customization, and zero obligation.
+                  Planning a flat, bungalow, or office space in Kolkata? Calculate your estimated cost from <strong>200 sq.ft upwards</strong> with clear pricing and zero obligation.
                 </p>
 
                 {/* 4 Feature Highlights */}
@@ -51,32 +51,32 @@ export function CostEstimatorSection() {
                   <div className="flex items-start gap-2.5 p-3 rounded-xl bg-surface-container/60 border border-border/60">
                     <Building2 className="w-4 h-4 text-accent shrink-0 mt-0.5" />
                     <div>
-                      <span className="font-bold text-foreground block">Custom Typology</span>
-                      <span className="text-[11px] text-muted-foreground">Studios, 1–4+ BHK, Villas &amp; Offices</span>
+                      <span className="font-bold text-foreground block">Any Space Type</span>
+                      <span className="text-[11px] text-muted-foreground">Flats, Bungalows, Offices &amp; Shops</span>
                     </div>
                   </div>
 
                   <div className="flex items-start gap-2.5 p-3 rounded-xl bg-surface-container/60 border border-border/60">
                     <Ruler className="w-4 h-4 text-accent shrink-0 mt-0.5" />
                     <div>
-                      <span className="font-bold text-foreground block">Carpet Area Scaling</span>
-                      <span className="text-[11px] text-muted-foreground">Tailored from 200 to 15,000+ sq.ft</span>
+                      <span className="font-bold text-foreground block">Custom Size</span>
+                      <span className="text-[11px] text-muted-foreground">Starting from 200 sq.ft</span>
                     </div>
                   </div>
 
                   <div className="flex items-start gap-2.5 p-3 rounded-xl bg-surface-container/60 border border-border/60">
                     <Layers className="w-4 h-4 text-accent shrink-0 mt-0.5" />
                     <div>
-                      <span className="font-bold text-foreground block">Material Tiers</span>
-                      <span className="text-[11px] text-muted-foreground">BWR/BWP Marine, HDHMR &amp; Veneers</span>
+                      <span className="font-bold text-foreground block">Quality Options</span>
+                      <span className="text-[11px] text-muted-foreground">Standard, Premium &amp; Luxury Packages</span>
                     </div>
                   </div>
 
                   <div className="flex items-start gap-2.5 p-3 rounded-xl bg-surface-container/60 border border-border/60">
                     <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
                     <div>
-                      <span className="font-bold text-foreground block">WhatsApp Blueprint</span>
-                      <span className="text-[11px] text-muted-foreground">Itemized lead quote in 60 seconds</span>
+                      <span className="font-bold text-foreground block">Direct on WhatsApp</span>
+                      <span className="text-[11px] text-muted-foreground">Instant budget sent to your phone</span>
                     </div>
                   </div>
                 </div>

@@ -4,8 +4,8 @@ import React, { useState, useMemo, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   X, ArrowLeft, ArrowRight, Check, Sparkles, Building2,
-  Home, Castle, Compass, Layers, ShieldCheck,
-  CheckCircle2, Sliders, MapPin, Phone, User, Calendar,
+  Home, Castle, ShieldCheck,
+  CheckCircle2, MapPin, Phone, User, Calendar,
   Briefcase, Maximize2
 } from 'lucide-react';
 import { useBooking } from '@/components/booking/BookingProvider';
@@ -23,7 +23,7 @@ import {
 export function CostEstimatorModal() {
   const { isEstimatorOpen, closeEstimator } = useBooking();
 
-  // Wizard state: Step 1 (Typology) -> Step 2 (Rough Area) -> Step 3 (Scope) -> Step 4 (Tier) -> Step 5 (WhatsApp Delivery)
+  // Wizard state: Step 1 (Space Type) -> Step 2 (Area) -> Step 3 (Work Scope) -> Step 4 (Quality) -> Step 5 (WhatsApp)
   const [step, setStep] = useState<number>(1);
   const [selectedConfigId, setSelectedConfigId] = useState<string>('3bhk');
   const [selectedScopeId, setSelectedScopeId] = useState<string>('mid-turnkey');
@@ -54,7 +54,7 @@ export function CostEstimatorModal() {
     return MATERIAL_TIERS.find((t) => t.id === selectedTierId) || MATERIAL_TIERS[1];
   }, [selectedTierId]);
 
-  // Handle Typology Selection
+  // Handle Space Type Selection
   const handleSelectConfig = (configId: string) => {
     setSelectedConfigId(configId);
     const cfg = HOME_CONFIGURATIONS.find((c) => c.id === configId);
@@ -100,13 +100,13 @@ export function CostEstimatorModal() {
     setFormError('');
 
     if (!name.trim()) {
-      setFormError('Please provide your name.');
+      setFormError('Please enter your full name.');
       return;
     }
 
     const cleanPhone = phone.replace(/[^0-9]/g, '');
     if (cleanPhone.length < 10) {
-      setFormError('Please enter a valid 10-digit WhatsApp number.');
+      setFormError('Please enter a valid 10-digit mobile number.');
       return;
     }
 
@@ -190,14 +190,14 @@ export function CostEstimatorModal() {
               <div className="min-w-0">
                 <div className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-surface-container border border-accent/30 text-[9px] sm:text-[10px] font-bold uppercase tracking-widest text-accent mb-0.5">
                   <Sparkles className="w-3 h-3 text-accent shrink-0" />
-                  <span className="truncate">Interior Cost Estimator</span>
+                  <span className="truncate">Free Cost Estimator</span>
                 </div>
                 <h3 className="text-sm sm:text-base md:text-lg font-bold font-heading text-foreground truncate">
-                  {step === 1 && 'Step 1: Choose Property Typology'}
-                  {step === 2 && 'Step 2: Approximate Carpet Area'}
-                  {step === 3 && 'Step 3: Define Project Scope'}
-                  {step === 4 && 'Step 4: Select Material & Finish Tier'}
-                  {step === 5 && 'Final Step: Unlock Full Itemized Estimate'}
+                  {step === 1 && 'Step 1: Choose Your Space Type'}
+                  {step === 2 && 'Step 2: Approximate Area (sq.ft)'}
+                  {step === 3 && 'Step 3: What Do You Want Designed?'}
+                  {step === 4 && 'Step 4: Choose Quality Level'}
+                  {step === 5 && 'Final Step: Get Your Free Estimate'}
                 </h3>
               </div>
             </div>
@@ -232,7 +232,7 @@ export function CostEstimatorModal() {
               </div>
               <span className="text-[10px] sm:text-[11px] text-accent font-semibold hidden xs:inline-block shrink-0 ml-2 truncate">
                 {step === 1 && selectedConfig.label}
-                {step === 2 && 'Area Calibration'}
+                {step === 2 && 'Approximate Size'}
                 {step === 3 && selectedScope.name}
                 {step === 4 && `${selectedScope.name} • ${selectedTier.name}`}
               </span>
@@ -241,11 +241,11 @@ export function CostEstimatorModal() {
 
           {/* Modal Body */}
           <div className="flex-1 overflow-y-auto p-4 sm:p-6 md:p-8 space-y-4 sm:space-y-6 overscroll-contain">
-            {/* ─── STEP 1: TYPOLOGY SELECTION (NO SPECIFIC SQFT ON CARDS) ─── */}
+            {/* ─── STEP 1: CHOOSE SPACE TYPE ─── */}
             {step === 1 && (
               <div className="space-y-3.5">
                 <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
-                  Select your property category. On the next step, you can customize your approximate area (starting from 200 sq.ft).
+                  Select your home or commercial property. In the next step, you can enter your approximate size.
                 </p>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3.5 pt-1">
@@ -286,7 +286,7 @@ export function CostEstimatorModal() {
                               {cfg.name}
                             </h4>
                             <span className="text-[9px] sm:text-[10px] uppercase font-bold text-accent tracking-wider">
-                              {cfg.category === 'commercial' ? 'Commercial' : cfg.category === 'villa' ? 'Estate' : 'Residential'}
+                              {cfg.category === 'commercial' ? 'Commercial' : cfg.category === 'villa' ? 'Bungalow' : 'Home'}
                             </span>
                           </div>
                           <p className="text-[11px] sm:text-xs text-muted-foreground/80 mt-1 line-clamp-2 leading-relaxed font-normal">
@@ -300,21 +300,17 @@ export function CostEstimatorModal() {
               </div>
             )}
 
-            {/* ─── STEP 2: APPROXIMATE CARPET AREA (MIN 200 SQFT) ─── */}
+            {/* ─── STEP 2: APPROXIMATE AREA ─── */}
             {step === 2 && (
               <div className="space-y-4 sm:space-y-6">
                 <div>
                   <div className="flex flex-col xs:flex-row xs:items-baseline justify-between gap-2 mb-2">
                     <div>
                       <h4 className="text-sm sm:text-base md:text-lg font-bold font-heading text-foreground">
-                        What is your approximate carpet area?
+                        Roughly how big is your space?
                       </h4>
                       <p className="text-xs text-muted-foreground leading-relaxed mt-0.5">
-                        {selectedConfig.category === 'commercial'
-                          ? 'Calibrate office or retail floor space to evaluate layout allowances.'
-                          : selectedConfig.category === 'villa'
-                          ? 'Calibrate total multi-level estate area including living pavilions and terraces.'
-                          : 'Give a rough estimate in square feet (minimum 200 sq.ft) to calibrate allowances.'}
+                        Give an approximate size in square feet (starts from 200 sq.ft).
                       </p>
                     </div>
                     <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl sm:rounded-2xl bg-surface-container border border-accent/30 shrink-0 self-start xs:self-auto">
@@ -325,7 +321,7 @@ export function CostEstimatorModal() {
                     </div>
                   </div>
 
-                  {/* Responsive Slider with dynamic min/max/step */}
+                  {/* Responsive Slider */}
                   <div className="py-3 sm:py-4">
                     <input
                       type="range"
@@ -345,7 +341,7 @@ export function CostEstimatorModal() {
                   {/* Quick Preset Buttons */}
                   <div className="space-y-1.5 pt-1">
                     <span className="text-[11px] sm:text-xs font-semibold text-muted-foreground block">
-                      Quick Area Presets:
+                      Common Sizes:
                     </span>
                     <div className="flex flex-wrap gap-1.5 sm:gap-2">
                       {selectedConfig.sqftPresets.map((preset) => (
@@ -369,7 +365,7 @@ export function CostEstimatorModal() {
                   <div className="mt-5 p-3.5 sm:p-4 rounded-xl sm:rounded-2xl bg-surface-container-low border border-border/70 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
                     <div className="flex items-center gap-2">
                       <Maximize2 className="w-4 h-4 text-accent shrink-0" />
-                      <span className="text-xs text-muted-foreground">Know your exact floor plan area?</span>
+                      <span className="text-xs text-muted-foreground">Know your exact floor size?</span>
                     </div>
                     <div className="flex items-center gap-2 self-end sm:self-auto">
                       <input
@@ -390,16 +386,12 @@ export function CostEstimatorModal() {
               </div>
             )}
 
-            {/* ─── STEP 3: DYNAMIC SCOPE OF WORK (TAILORED TO TYPOLOGY) ─── */}
+            {/* ─── STEP 3: WHAT DO YOU WANT DESIGNED? ─── */}
             {step === 3 && (
               <div className="space-y-3.5 sm:space-y-4">
                 <div className="flex items-center justify-between">
                   <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
-                    {selectedConfig.category === 'commercial'
-                      ? 'Select the commercial zones and facilities included in this brief.'
-                      : selectedConfig.category === 'villa'
-                      ? 'Select architectural wings and levels included in this estate brief.'
-                      : 'Which areas are included in this commission brief?'}
+                    Which parts of your space do you want us to design?
                   </p>
                   <span className="text-[10px] sm:text-[11px] font-bold text-accent uppercase tracking-wider hidden sm:inline-block shrink-0 ml-2">
                     {selectedConfig.name}
@@ -446,63 +438,48 @@ export function CostEstimatorModal() {
               </div>
             )}
 
-            {/* ─── STEP 4: MATERIAL & FINISH TIER ─── */}
+            {/* ─── STEP 4: CHOOSE QUALITY LEVEL ─── */}
             {step === 4 && (
               <div className="space-y-4 sm:space-y-5">
                 <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
-                  {selectedConfig.category === 'commercial'
-                    ? 'Compare commercial-grade core durability, acoustics, and architectural mechanisms.'
-                    : 'Compare core raw materials, surface finishes, and European mechanism grades.'}
+                  Select the quality level that fits your budget and design taste.
                 </p>
 
                 <div className="space-y-3 pt-1">
                   {MATERIAL_TIERS.map((tier) => {
                     const isSelected = selectedTier.id === tier.id;
-                    const highlightsToDisplay =
-                      selectedConfig.category === 'commercial' && tier.commercialHighlights
-                        ? tier.commercialHighlights
-                        : tier.highlights;
 
                     return (
                       <button
                         key={tier.id}
                         type="button"
                         onClick={() => setSelectedTierId(tier.id)}
-                        className={`w-full p-3.5 sm:p-5 rounded-xl sm:rounded-2xl border text-left transition-all duration-200 cursor-pointer ${
+                        className={`w-full p-4 sm:p-5 rounded-xl sm:rounded-2xl border text-left transition-all duration-200 cursor-pointer ${
                           isSelected
                             ? 'bg-accent/10 border-accent shadow-md shadow-accent/5 ring-1 ring-accent'
                             : 'bg-card border-border/70 hover:border-accent/40 hover:bg-surface-container-low'
                         }`}
                       >
-                        <div className="flex flex-col xs:flex-row xs:items-center justify-between gap-1.5 sm:gap-2 mb-2 sm:mb-3">
+                        <div className="flex flex-col xs:flex-row xs:items-center justify-between gap-1.5 sm:gap-2 mb-2 sm:mb-2.5">
                           <div className="flex items-center gap-2">
                             <h4 className="text-base sm:text-lg font-extrabold font-heading text-foreground">{tier.name}</h4>
                             {tier.badge && (
-                              <span className="px-2 py-0.5 rounded-full bg-accent text-[9px] font-extrabold uppercase tracking-widest text-white">
+                              <span className="px-2.5 py-0.5 rounded-full bg-accent text-[9px] sm:text-[10px] font-extrabold uppercase tracking-widest text-white">
                                 {tier.badge}
                               </span>
                             )}
                           </div>
-                          <span className="text-[10px] sm:text-xs font-semibold text-accent uppercase tracking-wider bg-surface-container px-2.5 py-0.5 rounded-full border border-accent/30 self-start xs:self-auto">
-                            {tier.id === 'essential' && 'Standard Specification'}
-                            {tier.id === 'signature' && 'Architectural Grade'}
-                            {tier.id === 'ultra-luxe' && 'Artisan Bespoke'}
+                          <span className="text-[11px] font-semibold text-accent self-start xs:self-auto">
+                            {tier.subtitle}
                           </span>
                         </div>
 
                         <p className="text-xs text-muted-foreground mb-3">{tier.tagline}</p>
 
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 sm:gap-2 text-[11px] sm:text-xs mb-3 text-muted-foreground">
-                          <div><strong>Core:</strong> {tier.coreMaterial}</div>
-                          <div><strong>Surfaces:</strong> {tier.surfaceFinish}</div>
-                          <div><strong>Hardware:</strong> {tier.hardware}</div>
-                          <div><strong>Lighting:</strong> {tier.lighting}</div>
-                        </div>
-
-                        <div className="flex flex-wrap gap-1.5 pt-2 border-t border-border/50">
-                          {highlightsToDisplay.map((h, i) => (
-                            <span key={i} className="inline-flex items-center gap-1 text-[10px] sm:text-[11px] text-foreground/80 bg-surface-container px-2 py-0.5 rounded-md">
-                              <CheckCircle2 className="w-3 h-3 text-accent shrink-0" />
+                        <div className="flex flex-wrap gap-2 pt-2 border-t border-border/50">
+                          {tier.highlights.map((h, i) => (
+                            <span key={i} className="inline-flex items-center gap-1.5 text-[11px] text-foreground/80 bg-surface-container px-2.5 py-1 rounded-md">
+                              <CheckCircle2 className="w-3.5 h-3.5 text-accent shrink-0" />
                               <span>{h}</span>
                             </span>
                           ))}
@@ -517,47 +494,47 @@ export function CostEstimatorModal() {
                   <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-2">
                     <div>
                       <span className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-accent block mb-0.5">
-                        Custom Specification Configured
+                        Your Custom Plan Is Ready!
                       </span>
-                      <div className="text-lg sm:text-2xl font-extrabold font-heading text-foreground tracking-tight">
-                        Estimate Ready for {selectedConfig.name}
+                      <div className="text-lg sm:text-xl font-extrabold font-heading text-foreground tracking-tight">
+                        {selectedConfig.name} • ~{sqft.toLocaleString('en-IN')} sq.ft
                       </div>
                       <p className="text-xs text-muted-foreground mt-0.5">
-                        ~{sqft.toLocaleString('en-IN')} sq.ft • {selectedTier.name} • {selectedScope.name}
+                        {selectedScope.name} • {selectedTier.name}
                       </p>
                     </div>
                     <span className="px-2.5 py-1 rounded-full bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 text-xs font-bold border border-emerald-500/30 shrink-0 self-start sm:self-auto">
-                      ✓ Calibrated
+                      ✓ Ready for WhatsApp
                     </span>
                   </div>
 
                   {/* Component Breakdown Bars */}
                   <div className="pt-3 border-t border-border/70 space-y-2">
                     <span className="text-[11px] sm:text-xs font-bold text-foreground block">
-                      Architectural Allocation Weightage:
+                      General Budget Breakdown:
                     </span>
                     <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs">
                       <div className="p-2 sm:p-2.5 rounded-xl bg-surface-container border border-border/60">
                         <span className="text-muted-foreground block text-[9px] sm:text-[10px] uppercase font-bold truncate">
-                          {selectedConfig.category === 'commercial' ? 'Fit-out & Cabins' : 'Joinery & Modular'}
+                          Woodwork &amp; Cabinets
                         </span>
                         <span className="text-xs sm:text-sm font-bold text-foreground font-heading">42%</span>
                       </div>
                       <div className="p-2 sm:p-2.5 rounded-xl bg-surface-container border border-border/60">
                         <span className="text-muted-foreground block text-[9px] sm:text-[10px] uppercase font-bold truncate">
-                          {selectedConfig.category === 'commercial' ? 'Flooring & Glass' : 'Stone & Surfaces'}
+                          Flooring &amp; Walls
                         </span>
                         <span className="text-xs sm:text-sm font-bold text-foreground font-heading">28%</span>
                       </div>
                       <div className="p-2 sm:p-2.5 rounded-xl bg-surface-container border border-border/60">
                         <span className="text-muted-foreground block text-[9px] sm:text-[10px] uppercase font-bold truncate">
-                          {selectedConfig.category === 'commercial' ? 'HVAC & Lighting' : 'Lighting & Electrics'}
+                          Ceiling &amp; Lights
                         </span>
                         <span className="text-xs sm:text-sm font-bold text-foreground font-heading">15%</span>
                       </div>
                       <div className="p-2 sm:p-2.5 rounded-xl bg-surface-container border border-border/60">
                         <span className="text-muted-foreground block text-[9px] sm:text-[10px] uppercase font-bold truncate">
-                          Supervision & MEP
+                          Painting &amp; Fitting
                         </span>
                         <span className="text-xs sm:text-sm font-bold text-foreground font-heading">15%</span>
                       </div>
@@ -567,7 +544,7 @@ export function CostEstimatorModal() {
               </div>
             )}
 
-            {/* ─── STEP 5: GATED REVEAL & WHATSAPP REDIRECT ─── */}
+            {/* ─── STEP 5: WHERE SHOULD WE SEND YOUR ESTIMATE? ─── */}
             {step === 5 && (
               <div className="space-y-4 sm:space-y-6">
                 {!formSubmitted ? (
@@ -576,27 +553,27 @@ export function CostEstimatorModal() {
                     <div className="p-4 sm:p-5 rounded-xl sm:rounded-2xl bg-accent/10 border border-accent/40 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                       <div>
                         <span className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-accent block mb-0.5">
-                          Personalized Blueprint &amp; Quotation
+                          Selected Summary
                         </span>
                         <h4 className="text-lg sm:text-2xl font-extrabold font-heading text-foreground">
                           {selectedConfig.name} • ~{sqft.toLocaleString('en-IN')} sq.ft
                         </h4>
                         <p className="text-xs text-muted-foreground mt-0.5">
-                          {selectedTier.name} • {selectedScope.name}
+                          {selectedScope.name} • {selectedTier.name}
                         </p>
                       </div>
                       <div className="hidden sm:block text-right">
                         <span className="text-[10px] font-bold text-muted-foreground uppercase">Protection</span>
-                        <p className="text-xs font-semibold text-foreground">10-Year Warranty &amp; Site Stewardship</p>
+                        <p className="text-xs font-semibold text-foreground">10-Year Warranty &amp; On-Site Work</p>
                       </div>
                     </div>
 
                     <div className="space-y-1">
                       <h4 className="text-xs sm:text-sm font-bold font-heading text-foreground">
-                        Where should we send your itemized room-by-room quotation?
+                        Where should we send your free estimate?
                       </h4>
                       <p className="text-[11px] sm:text-xs text-muted-foreground">
-                        Delivered straight to your WhatsApp. Connect directly with our Lead Architect.
+                        Your budget will be sent directly to your WhatsApp. You can also talk to our Lead Designer.
                       </p>
                     </div>
 
@@ -612,14 +589,14 @@ export function CostEstimatorModal() {
                       <div className="space-y-1">
                         <label className="text-[11px] font-bold uppercase tracking-wider text-muted-foreground flex items-center gap-1.5">
                           <User className="w-3.5 h-3.5 text-accent" />
-                          <span>Full Name</span>
+                          <span>Your Name</span>
                         </label>
                         <input
                           type="text"
                           required
                           value={name}
                           onChange={(e) => setName(e.target.value)}
-                          placeholder="e.g. Vikramaditya Roy"
+                          placeholder="e.g. Rahul Sharma"
                           className="w-full px-3.5 py-2.5 sm:px-4 sm:py-3 rounded-xl bg-surface-container border border-border text-foreground text-xs sm:text-sm focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all"
                         />
                       </div>
@@ -628,7 +605,7 @@ export function CostEstimatorModal() {
                       <div className="space-y-1">
                         <label className="text-[11px] font-bold uppercase tracking-wider text-muted-foreground flex items-center gap-1.5">
                           <Phone className="w-3.5 h-3.5 text-accent" />
-                          <span>WhatsApp Number</span>
+                          <span>WhatsApp Mobile Number</span>
                         </label>
                         <div className="relative">
                           <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-xs font-bold text-muted-foreground">
@@ -649,7 +626,7 @@ export function CostEstimatorModal() {
                       <div className="space-y-1">
                         <label className="text-[11px] font-bold uppercase tracking-wider text-muted-foreground flex items-center gap-1.5">
                           <MapPin className="w-3.5 h-3.5 text-accent" />
-                          <span>Project Locality (Kolkata)</span>
+                          <span>Area in Kolkata</span>
                         </label>
                         <select
                           value={locality}
@@ -668,7 +645,7 @@ export function CostEstimatorModal() {
                       <div className="space-y-1">
                         <label className="text-[11px] font-bold uppercase tracking-wider text-muted-foreground flex items-center gap-1.5">
                           <Calendar className="w-3.5 h-3.5 text-accent" />
-                          <span>Possession / Start Date</span>
+                          <span>When Do You Plan to Start?</span>
                         </label>
                         <select
                           value={timeline}
@@ -688,11 +665,11 @@ export function CostEstimatorModal() {
                     <div className="p-3 sm:p-4 rounded-xl bg-surface-container border border-border/60 flex flex-wrap items-center justify-between gap-2 text-[11px] sm:text-xs text-muted-foreground">
                       <div className="flex items-center gap-1.5">
                         <ShieldCheck className="w-4 h-4 text-accent" />
-                        <span>Zero Obligation Consultation</span>
+                        <span>100% Free • No Obligation</span>
                       </div>
                       <div className="flex items-center gap-1.5">
                         <CheckCircle2 className="w-4 h-4 text-emerald-500" />
-                        <span>Kolkata On-Site Survey Included</span>
+                        <span>Free Home / Site Visit in Kolkata</span>
                       </div>
                     </div>
 
@@ -701,7 +678,7 @@ export function CostEstimatorModal() {
                       type="submit"
                       className="w-full py-3.5 sm:py-4 px-4 sm:px-6 rounded-xl sm:rounded-2xl bg-gradient-to-r from-accent via-primary to-accent text-white font-extrabold text-xs sm:text-base tracking-wide uppercase hover:opacity-95 transition-all shadow-xl shadow-accent/20 cursor-pointer flex items-center justify-center gap-2"
                     >
-                      <span>Generate Itemized Estimate via WhatsApp</span>
+                      <span>Get Free Estimate on WhatsApp</span>
                       <ArrowRight className="w-4 h-4 shrink-0" />
                     </button>
                   </form>
@@ -712,10 +689,10 @@ export function CostEstimatorModal() {
                       <Check className="w-7 h-7 sm:w-8 sm:h-8" />
                     </div>
                     <h4 className="text-xl sm:text-2xl font-extrabold font-heading text-foreground">
-                      Quotation Generated!
+                      Estimate Sent!
                     </h4>
                     <p className="text-xs sm:text-sm text-muted-foreground max-w-md mx-auto leading-relaxed">
-                      We have redirected your specification to our Lead Architect on WhatsApp. You can also re-open the link below anytime.
+                      We have opened your WhatsApp chat with our Lead Designer. You can also re-open the message below anytime.
                     </p>
 
                     <div className="pt-3 flex flex-col sm:flex-row items-center justify-center gap-2.5 sm:gap-3">
@@ -739,14 +716,14 @@ export function CostEstimatorModal() {
                         }}
                         className="w-full sm:w-auto px-6 py-3 rounded-full bg-primary text-primary-foreground font-bold text-xs uppercase tracking-wider hover:bg-primary/90 transition-all cursor-pointer shadow-lg"
                       >
-                        Re-open WhatsApp Chat
+                        Open WhatsApp Chat
                       </button>
 
                       <button
                         onClick={closeEstimator}
                         className="w-full sm:w-auto px-6 py-3 rounded-full bg-surface-container text-muted-foreground hover:text-foreground font-semibold text-xs transition-colors cursor-pointer"
                       >
-                        Return to Portfolio
+                        Close
                       </button>
                     </div>
                   </div>
@@ -755,7 +732,7 @@ export function CostEstimatorModal() {
             )}
           </div>
 
-          {/* Sticky Modal Footer Controls (Always accessible on mobile) */}
+          {/* Sticky Modal Footer Controls */}
           <div className="px-4 py-3 sm:px-6 sm:py-4 border-t border-border/70 bg-surface-container-low/95 backdrop-blur-md flex items-center justify-between shrink-0 sticky bottom-0 z-20">
             <button
               type="button"
