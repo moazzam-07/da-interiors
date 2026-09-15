@@ -5,17 +5,17 @@ import { motion, AnimatePresence } from 'framer-motion';
 import {
   X, ArrowLeft, ArrowRight, Check, Sparkles, Building2,
   Home, Castle, Compass, Layers, ShieldCheck,
-  CheckCircle2, Sliders, MapPin, Phone, User, Calendar
+  CheckCircle2, Sliders, MapPin, Phone, User, Calendar,
+  Briefcase, Maximize2
 } from 'lucide-react';
 import { useBooking } from '@/components/booking/BookingProvider';
 import {
   HOME_CONFIGURATIONS,
-  SCOPES_OF_WORK,
+  getScopesForConfig,
   MATERIAL_TIERS,
   KOLKATA_LOCALITIES,
   TIMELINE_OPTIONS,
   calculateEstimate,
-  formatINR,
   buildWhatsAppEstimateUrl,
   type LeadSubmissionData
 } from '@/lib/estimator-data';
@@ -23,10 +23,10 @@ import {
 export function CostEstimatorModal() {
   const { isEstimatorOpen, closeEstimator } = useBooking();
 
-  // Wizard state
+  // Wizard state: Step 1 (Typology) -> Step 2 (Rough Area) -> Step 3 (Scope) -> Step 4 (Tier) -> Step 5 (WhatsApp Delivery)
   const [step, setStep] = useState<number>(1);
   const [selectedConfigId, setSelectedConfigId] = useState<string>('3bhk');
-  const [selectedScopeId, setSelectedScopeId] = useState<string>('full-home');
+  const [selectedScopeId, setSelectedScopeId] = useState<string>('mid-turnkey');
   const [selectedTierId, setSelectedTierId] = useState<string>('signature');
   const [sqft, setSqft] = useState<number>(1650);
 
@@ -38,25 +38,41 @@ export function CostEstimatorModal() {
   const [formSubmitted, setFormSubmitted] = useState<boolean>(false);
   const [formError, setFormError] = useState<string>('');
 
-  // Update default sqft when config changes if user hasn't heavily customized
+  const selectedConfig = useMemo(() => {
+    return HOME_CONFIGURATIONS.find((c) => c.id === selectedConfigId) || HOME_CONFIGURATIONS[3];
+  }, [selectedConfigId]);
+
+  const availableScopes = useMemo(() => {
+    return getScopesForConfig(selectedConfigId);
+  }, [selectedConfigId]);
+
+  const selectedScope = useMemo(() => {
+    return availableScopes.find((s) => s.id === selectedScopeId) || availableScopes[0];
+  }, [availableScopes, selectedScopeId]);
+
+  const selectedTier = useMemo(() => {
+    return MATERIAL_TIERS.find((t) => t.id === selectedTierId) || MATERIAL_TIERS[1];
+  }, [selectedTierId]);
+
+  // Handle Typology Selection
   const handleSelectConfig = (configId: string) => {
     setSelectedConfigId(configId);
     const cfg = HOME_CONFIGURATIONS.find((c) => c.id === configId);
     if (cfg) {
       setSqft(cfg.defaultSqft);
+      const newScopes = getScopesForConfig(cfg.id);
+      if (!newScopes.some((s) => s.id === selectedScopeId)) {
+        setSelectedScopeId(newScopes[0].id);
+      }
     }
   };
 
-  // Real-time calculation
+  // Real-time calculation for WhatsApp output
   const estimate = useMemo(() => {
-    return calculateEstimate(sqft, selectedScopeId, selectedTierId);
-  }, [sqft, selectedScopeId, selectedTierId]);
+    return calculateEstimate(sqft, selectedScope.id, selectedTier.id);
+  }, [sqft, selectedScope.id, selectedTier.id]);
 
-  const selectedConfig = HOME_CONFIGURATIONS.find((c) => c.id === selectedConfigId)!;
-  const selectedScope = SCOPES_OF_WORK.find((s) => s.id === selectedScopeId)!;
-  const selectedTier = MATERIAL_TIERS.find((t) => t.id === selectedTierId)!;
-
-  // Reset or initialize on open
+  // Reset body overflow on open/close
   useEffect(() => {
     if (isEstimatorOpen) {
       document.body.style.overflow = 'hidden';
@@ -120,6 +136,22 @@ export function CostEstimatorModal() {
 
   if (!isEstimatorOpen) return null;
 
+  const getTypologyIcon = (id: string) => {
+    switch (id) {
+      case 'commercial':
+        return Briefcase;
+      case 'villa':
+        return Castle;
+      case 'penthouse':
+      case '4bhk':
+        return Building2;
+      case 'studio':
+        return Sparkles;
+      default:
+        return Home;
+    }
+  };
+
   return (
     <AnimatePresence>
       <div className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-6 overflow-y-auto">
@@ -161,10 +193,10 @@ export function CostEstimatorModal() {
                   <span>Interactive Interior Estimator</span>
                 </div>
                 <h3 className="text-base sm:text-lg font-bold font-heading text-foreground">
-                  {step === 1 && 'Step 1: Choose Home Typology'}
-                  {step === 2 && 'Step 2: Define Project Scope'}
-                  {step === 3 && 'Step 3: Select Material & Finish Tier'}
-                  {step === 4 && 'Step 4: Fine-tune Carpet Area & Live Estimate'}
+                  {step === 1 && 'Step 1: Choose Property Typology'}
+                  {step === 2 && 'Step 2: Approximate Carpet Area'}
+                  {step === 3 && 'Step 3: Define Project Scope'}
+                  {step === 4 && 'Step 4: Select Material & Finish Tier'}
                   {step === 5 && 'Final Step: Unlock Full Itemized Estimate'}
                 </h3>
               </div>
@@ -189,34 +221,37 @@ export function CostEstimatorModal() {
             </div>
           </div>
 
-          {/* Configuration Status Bar (No premature amounts) */}
+          {/* Configuration Status Tracker (No premature amounts, dynamic parameters) */}
           {step < 5 && (
             <div className="px-6 py-2.5 bg-gradient-to-r from-accent/10 via-surface-container-low to-primary/10 border-b border-border/60 flex items-center justify-between text-xs">
               <div className="flex items-center gap-2">
                 <span className="text-muted-foreground font-medium">Selected Parameters:</span>
                 <span className="font-bold text-foreground text-xs sm:text-sm font-heading tracking-tight">
-                  {selectedConfig.name} • {sqft.toLocaleString('en-IN')} sq.ft
+                  {step === 1 ? selectedConfig.name : `${selectedConfig.name} • ~${sqft.toLocaleString('en-IN')} sq.ft`}
                 </span>
               </div>
               <span className="text-[11px] text-accent font-semibold hidden md:inline-block">
-                {selectedScope.name} • {selectedTier.name}
+                {step === 1 && selectedConfig.label}
+                {step === 2 && 'Rough Area Calibration'}
+                {step === 3 && selectedScope.name}
+                {step === 4 && `${selectedScope.name} • ${selectedTier.name}`}
               </span>
             </div>
           )}
 
           {/* Modal Body */}
           <div className="flex-1 overflow-y-auto p-6 sm:p-8 space-y-6">
-            {/* ─── STEP 1: HOME CONFIGURATION ─── */}
+            {/* ─── STEP 1: TYPOLOGY SELECTION (NO SPECIFIC SQFT ON CARDS) ─── */}
             {step === 1 && (
               <div className="space-y-4">
                 <p className="text-xs sm:text-sm text-muted-foreground">
-                  Select your property layout to calibrate base dimensions and architectural floor allowances.
+                  Select your property category. On the next step, you can specify your approximate area.
                 </p>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-2">
                   {HOME_CONFIGURATIONS.map((cfg) => {
                     const isSelected = selectedConfigId === cfg.id;
-                    const Icon = cfg.id === 'villa' ? Castle : cfg.id === 'penthouse' ? Building2 : Home;
+                    const Icon = getTypologyIcon(cfg.id);
 
                     return (
                       <button
@@ -230,7 +265,13 @@ export function CostEstimatorModal() {
                         }`}
                       >
                         <div className="flex items-start justify-between mb-2">
-                          <div className={`w-9 h-9 rounded-xl flex items-center justify-center ${isSelected ? 'bg-accent text-white' : 'bg-surface-container text-muted-foreground'}`}>
+                          <div
+                            className={`w-9 h-9 rounded-xl flex items-center justify-center ${
+                              isSelected
+                                ? 'bg-accent text-white'
+                                : 'bg-surface-container text-muted-foreground'
+                            }`}
+                          >
                             <Icon className="w-5 h-5" />
                           </div>
                           {isSelected && (
@@ -241,8 +282,12 @@ export function CostEstimatorModal() {
                         </div>
                         <div>
                           <div className="flex items-baseline justify-between gap-2">
-                            <h4 className="text-base font-bold font-heading text-foreground">{cfg.name}</h4>
-                            <span className="text-[11px] font-semibold text-accent">~{cfg.defaultSqft} sq.ft</span>
+                            <h4 className="text-base font-bold font-heading text-foreground">
+                              {cfg.name}
+                            </h4>
+                            <span className="text-[10px] uppercase font-bold text-accent tracking-wider">
+                              {cfg.category === 'commercial' ? 'Commercial' : cfg.category === 'villa' ? 'Estate' : 'Residential'}
+                            </span>
                           </div>
                           <p className="text-xs text-muted-foreground/80 mt-1 line-clamp-2 leading-relaxed font-normal">
                             {cfg.description}
@@ -255,16 +300,115 @@ export function CostEstimatorModal() {
               </div>
             )}
 
-            {/* ─── STEP 2: SCOPE OF WORK ─── */}
+            {/* ─── STEP 2: APPROXIMATE CARPET AREA (ROUGH ESTIMATE) ─── */}
             {step === 2 && (
+              <div className="space-y-6">
+                <div>
+                  <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 mb-2">
+                    <div>
+                      <h4 className="text-base sm:text-lg font-bold font-heading text-foreground">
+                        What is your approximate carpet area?
+                      </h4>
+                      <p className="text-xs text-muted-foreground">
+                        {selectedConfig.category === 'commercial'
+                          ? 'Calibrate your office or retail floor space to evaluate layout allowances.'
+                          : selectedConfig.category === 'villa'
+                          ? 'Calibrate total multi-level estate area including living pavilions, private suites & terraces.'
+                          : 'Give a rough estimate in square feet to calibrate base architectural allowances.'}
+                      </p>
+                    </div>
+                    <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-2xl bg-surface-container border border-accent/30 shrink-0">
+                      <span className="text-2xl sm:text-3xl font-black font-heading text-accent">
+                        {sqft.toLocaleString('en-IN')}
+                      </span>
+                      <span className="text-xs text-muted-foreground font-bold uppercase">sq.ft</span>
+                    </div>
+                  </div>
+
+                  {/* Responsive Slider with dynamic min/max/step */}
+                  <div className="py-4">
+                    <input
+                      type="range"
+                      min={selectedConfig.minSqft}
+                      max={selectedConfig.maxSqft}
+                      step={selectedConfig.sqftStep}
+                      value={sqft}
+                      onChange={(e) => setSqft(Number(e.target.value))}
+                      className="w-full h-3 bg-surface-container rounded-lg appearance-none cursor-pointer accent-accent"
+                    />
+                    <div className="flex justify-between text-[11px] text-muted-foreground font-medium mt-2">
+                      <span>Min: {selectedConfig.minSqft.toLocaleString('en-IN')} sq.ft</span>
+                      <span>Max: {selectedConfig.maxSqft.toLocaleString('en-IN')}+ sq.ft</span>
+                    </div>
+                  </div>
+
+                  {/* Quick Preset Buttons */}
+                  <div className="space-y-2 pt-1">
+                    <span className="text-xs font-semibold text-muted-foreground block">
+                      Quick Area Presets:
+                    </span>
+                    <div className="flex flex-wrap gap-2">
+                      {selectedConfig.sqftPresets.map((preset) => (
+                        <button
+                          key={preset}
+                          type="button"
+                          onClick={() => setSqft(preset)}
+                          className={`px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer ${
+                            sqft === preset
+                              ? 'bg-accent text-white shadow-md shadow-accent/20 scale-105 ring-2 ring-accent/30'
+                              : 'bg-surface-container hover:bg-surface-container-high text-muted-foreground border border-border/70 hover:text-foreground'
+                          }`}
+                        >
+                          ~{preset.toLocaleString('en-IN')} sq.ft
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Manual Exact Input */}
+                  <div className="mt-6 p-4 rounded-2xl bg-surface-container-low border border-border/70 flex items-center justify-between gap-4">
+                    <div className="flex items-center gap-2.5">
+                      <Maximize2 className="w-4 h-4 text-accent" />
+                      <span className="text-xs text-muted-foreground">Know your exact floor plan area?</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <input
+                        type="number"
+                        min={100}
+                        max={50000}
+                        value={sqft}
+                        onChange={(e) => {
+                          const val = Number(e.target.value);
+                          if (val >= 0) setSqft(val);
+                        }}
+                        className="w-24 px-3 py-1.5 rounded-xl bg-background border border-border text-foreground text-xs font-bold text-center focus:outline-none focus:border-accent"
+                      />
+                      <span className="text-xs font-bold text-muted-foreground">sq.ft</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* ─── STEP 3: DYNAMIC SCOPE OF WORK (TAILORED TO TYPOLOGY) ─── */}
+            {step === 3 && (
               <div className="space-y-4">
-                <p className="text-xs sm:text-sm text-muted-foreground">
-                  Which areas of your residence are included in this commission brief?
-                </p>
+                <div className="flex items-center justify-between">
+                  <p className="text-xs sm:text-sm text-muted-foreground">
+                    {selectedConfig.category === 'commercial'
+                      ? 'Select the commercial zones and facilities included in this commission brief.'
+                      : selectedConfig.category === 'villa'
+                      ? 'Select architectural wings and levels included in this estate brief.'
+                      : 'Which areas are included in this commission brief?'}
+                  </p>
+                  <span className="text-[11px] font-bold text-accent uppercase tracking-wider hidden sm:inline-block">
+                    Tailored for {selectedConfig.name}
+                  </span>
+                </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-2">
-                  {SCOPES_OF_WORK.map((scope) => {
-                    const isSelected = selectedScopeId === scope.id;
+                  {availableScopes.map((scope) => {
+                    const isSelected = selectedScope.id === scope.id;
 
                     return (
                       <button
@@ -302,16 +446,22 @@ export function CostEstimatorModal() {
               </div>
             )}
 
-            {/* ─── STEP 3: MATERIAL & QUALITY TIER ─── */}
-            {step === 3 && (
-              <div className="space-y-4">
+            {/* ─── STEP 4: MATERIAL & FINISH TIER ─── */}
+            {step === 4 && (
+              <div className="space-y-5">
                 <p className="text-xs sm:text-sm text-muted-foreground">
-                  Compare core raw materials, surface finishes, and European mechanism grades.
+                  {selectedConfig.category === 'commercial'
+                    ? 'Compare commercial-grade core durability, acoustics, and architectural mechanisms.'
+                    : 'Compare core raw materials, surface finishes, and European mechanism grades.'}
                 </p>
 
-                <div className="space-y-3.5 pt-2">
+                <div className="space-y-3.5 pt-1">
                   {MATERIAL_TIERS.map((tier) => {
-                    const isSelected = selectedTierId === tier.id;
+                    const isSelected = selectedTier.id === tier.id;
+                    const highlightsToDisplay =
+                      selectedConfig.category === 'commercial' && tier.commercialHighlights
+                        ? tier.commercialHighlights
+                        : tier.highlights;
 
                     return (
                       <button
@@ -350,7 +500,7 @@ export function CostEstimatorModal() {
                         </div>
 
                         <div className="flex flex-wrap gap-2 pt-2 border-t border-border/50">
-                          {tier.highlights.map((h, i) => (
+                          {highlightsToDisplay.map((h, i) => (
                             <span key={i} className="inline-flex items-center gap-1 text-[11px] text-foreground/80 bg-surface-container px-2.5 py-1 rounded-md">
                               <CheckCircle2 className="w-3 h-3 text-accent shrink-0" />
                               <span>{h}</span>
@@ -361,94 +511,54 @@ export function CostEstimatorModal() {
                     );
                   })}
                 </div>
-              </div>
-            )}
 
-            {/* ─── STEP 4: CARPET AREA & ESTIMATE CALIBRATION ─── */}
-            {step === 4 && (
-              <div className="space-y-6">
-                <div>
-                  <div className="flex items-center justify-between mb-3">
-                    <label className="text-sm font-bold font-heading text-foreground">
-                      Carpet Area (Square Feet)
-                    </label>
-                    <div className="flex items-center gap-2">
-                      <span className="text-xl sm:text-2xl font-black font-heading text-accent">
-                        {sqft.toLocaleString('en-IN')}
-                      </span>
-                      <span className="text-xs text-muted-foreground uppercase font-bold">sq.ft</span>
-                    </div>
-                  </div>
-
-                  {/* Slider */}
-                  <input
-                    type="range"
-                    min="600"
-                    max="6000"
-                    step="50"
-                    value={sqft}
-                    onChange={(e) => setSqft(Number(e.target.value))}
-                    className="w-full h-2.5 bg-surface-container rounded-lg appearance-none cursor-pointer accent-accent"
-                  />
-
-                  {/* Quick Preset Buttons */}
-                  <div className="flex flex-wrap gap-2 mt-3.5">
-                    {[1000, 1400, 1850, 2400, 3200, 4500].map((preset) => (
-                      <button
-                        key={preset}
-                        type="button"
-                        onClick={() => setSqft(preset)}
-                        className={`px-3 py-1 rounded-full text-xs font-semibold transition-all cursor-pointer ${
-                          sqft === preset
-                            ? 'bg-accent text-white'
-                            : 'bg-surface-container hover:bg-surface-container-high text-muted-foreground border border-border/60'
-                        }`}
-                      >
-                        {preset} sq.ft
-                      </button>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Specification Summary Card (No premature price numbers) */}
-                <div className="p-6 rounded-2xl border border-accent/40 bg-gradient-to-br from-surface-container-low via-background to-surface-container-low shadow-xl shadow-accent/5 space-y-4">
+                {/* Specification Summary Card */}
+                <div className="p-5 rounded-2xl border border-accent/40 bg-gradient-to-br from-surface-container-low via-background to-surface-container-low shadow-xl shadow-accent/5 space-y-3 mt-4">
                   <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-2">
                     <div>
-                      <span className="text-xs font-bold uppercase tracking-wider text-accent block mb-1">
-                        Custom Project Specification Configured
+                      <span className="text-xs font-bold uppercase tracking-wider text-accent block mb-0.5">
+                        Custom Specification Configured
                       </span>
-                      <div className="text-2xl sm:text-3xl font-extrabold font-heading text-foreground tracking-tight">
+                      <div className="text-xl sm:text-2xl font-extrabold font-heading text-foreground tracking-tight">
                         Estimate Ready for {selectedConfig.name}
                       </div>
-                      <p className="text-xs text-muted-foreground mt-1">
-                        {sqft.toLocaleString('en-IN')} sq.ft • {selectedTier.name} • {selectedScope.name}
+                      <p className="text-xs text-muted-foreground mt-0.5">
+                        ~{sqft.toLocaleString('en-IN')} sq.ft • {selectedTier.name} • {selectedScope.name}
                       </p>
                     </div>
-                    <span className="px-3 py-1.5 rounded-full bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 text-xs font-bold border border-emerald-500/30">
-                      ✓ Calculation Complete
+                    <span className="px-3 py-1 rounded-full bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 text-xs font-bold border border-emerald-500/30 shrink-0">
+                      ✓ Parameters Calibrated
                     </span>
                   </div>
 
                   {/* Component Breakdown Bars */}
-                  <div className="pt-4 border-t border-border/70 space-y-2.5">
+                  <div className="pt-3 border-t border-border/70 space-y-2">
                     <span className="text-xs font-bold text-foreground block">
                       Architectural Allocation Weightage:
                     </span>
-                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs">
-                      <div className="p-3 rounded-xl bg-surface-container border border-border/60">
-                        <span className="text-muted-foreground block text-[10px] uppercase font-bold">Joinery & Modular</span>
+                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 text-xs">
+                      <div className="p-2.5 rounded-xl bg-surface-container border border-border/60">
+                        <span className="text-muted-foreground block text-[10px] uppercase font-bold">
+                          {selectedConfig.category === 'commercial' ? 'Fit-out & Cabins' : 'Joinery & Modular'}
+                        </span>
                         <span className="text-sm font-bold text-foreground font-heading">42%</span>
                       </div>
-                      <div className="p-3 rounded-xl bg-surface-container border border-border/60">
-                        <span className="text-muted-foreground block text-[10px] uppercase font-bold">Stone & Surfaces</span>
+                      <div className="p-2.5 rounded-xl bg-surface-container border border-border/60">
+                        <span className="text-muted-foreground block text-[10px] uppercase font-bold">
+                          {selectedConfig.category === 'commercial' ? 'Flooring & Glass' : 'Stone & Surfaces'}
+                        </span>
                         <span className="text-sm font-bold text-foreground font-heading">28%</span>
                       </div>
-                      <div className="p-3 rounded-xl bg-surface-container border border-border/60">
-                        <span className="text-muted-foreground block text-[10px] uppercase font-bold">Lighting & Electrics</span>
+                      <div className="p-2.5 rounded-xl bg-surface-container border border-border/60">
+                        <span className="text-muted-foreground block text-[10px] uppercase font-bold">
+                          {selectedConfig.category === 'commercial' ? 'HVAC & Lighting' : 'Lighting & Electrics'}
+                        </span>
                         <span className="text-sm font-bold text-foreground font-heading">15%</span>
                       </div>
-                      <div className="p-3 rounded-xl bg-surface-container border border-border/60">
-                        <span className="text-muted-foreground block text-[10px] uppercase font-bold">Hardware & Oversight</span>
+                      <div className="p-2.5 rounded-xl bg-surface-container border border-border/60">
+                        <span className="text-muted-foreground block text-[10px] uppercase font-bold">
+                          Supervision & MEP
+                        </span>
                         <span className="text-sm font-bold text-foreground font-heading">15%</span>
                       </div>
                     </div>
@@ -469,7 +579,7 @@ export function CostEstimatorModal() {
                           Personalized Blueprint &amp; Quotation
                         </span>
                         <h4 className="text-xl sm:text-2xl font-extrabold font-heading text-foreground">
-                          {selectedConfig.name} • {sqft.toLocaleString('en-IN')} sq.ft
+                          {selectedConfig.name} • ~{sqft.toLocaleString('en-IN')} sq.ft
                         </h4>
                         <p className="text-xs text-muted-foreground mt-1">
                           {selectedTier.name} • {selectedScope.name}
@@ -498,139 +608,145 @@ export function CostEstimatorModal() {
 
                     {/* Inputs */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      <div>
-                        <label className="block text-xs font-bold uppercase tracking-wider text-muted-foreground mb-1.5">
-                          Your Full Name *
+                      {/* Name */}
+                      <div className="space-y-1.5">
+                        <label className="text-xs font-bold uppercase tracking-wider text-muted-foreground flex items-center gap-1.5">
+                          <User className="w-3.5 h-3.5 text-accent" />
+                          <span>Full Name</span>
                         </label>
-                        <div className="relative">
-                          <User className="w-4 h-4 text-muted-foreground absolute left-3.5 top-1/2 -translate-y-1/2" />
-                          <input
-                            type="text"
-                            required
-                            placeholder="e.g. S. Banerjee"
-                            value={name}
-                            onChange={(e) => setName(e.target.value)}
-                            className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-surface-container border border-border/80 focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent text-sm text-foreground placeholder:text-muted-foreground/60 transition-all"
-                          />
-                        </div>
+                        <input
+                          type="text"
+                          required
+                          value={name}
+                          onChange={(e) => setName(e.target.value)}
+                          placeholder="e.g. Vikramaditya Roy"
+                          className="w-full px-4 py-3 rounded-xl bg-surface-container border border-border text-foreground text-sm focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all"
+                        />
                       </div>
 
-                      <div>
-                        <label className="block text-xs font-bold uppercase tracking-wider text-muted-foreground mb-1.5">
-                          WhatsApp Number *
+                      {/* WhatsApp Phone */}
+                      <div className="space-y-1.5">
+                        <label className="text-xs font-bold uppercase tracking-wider text-muted-foreground flex items-center gap-1.5">
+                          <Phone className="w-3.5 h-3.5 text-accent" />
+                          <span>WhatsApp Number</span>
                         </label>
                         <div className="relative">
-                          <Phone className="w-4 h-4 text-muted-foreground absolute left-3.5 top-1/2 -translate-y-1/2" />
+                          <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-xs font-bold text-muted-foreground">
+                            +91
+                          </span>
                           <input
                             type="tel"
                             required
-                            placeholder="+91 98300 XXXXX"
                             value={phone}
                             onChange={(e) => setPhone(e.target.value)}
-                            className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-surface-container border border-border/80 focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent text-sm text-foreground placeholder:text-muted-foreground/60 transition-all"
+                            placeholder="98300 XXXXX"
+                            className="w-full pl-12 pr-4 py-3 rounded-xl bg-surface-container border border-border text-foreground text-sm focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all"
                           />
                         </div>
                       </div>
 
-                      <div>
-                        <label className="block text-xs font-bold uppercase tracking-wider text-muted-foreground mb-1.5">
-                          Kolkata Project Locality *
+                      {/* Locality */}
+                      <div className="space-y-1.5">
+                        <label className="text-xs font-bold uppercase tracking-wider text-muted-foreground flex items-center gap-1.5">
+                          <MapPin className="w-3.5 h-3.5 text-accent" />
+                          <span>Project Locality (Kolkata)</span>
                         </label>
-                        <div className="relative">
-                          <MapPin className="w-4 h-4 text-muted-foreground absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
-                          <select
-                            value={locality}
-                            onChange={(e) => setLocality(e.target.value)}
-                            className="w-full pl-10 pr-8 py-2.5 rounded-xl bg-surface-container border border-border/80 focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent text-sm text-foreground cursor-pointer transition-all"
-                          >
-                            {KOLKATA_LOCALITIES.map((loc) => (
-                              <option key={loc} value={loc}>
-                                {loc}
-                              </option>
-                            ))}
-                          </select>
-                        </div>
+                        <select
+                          value={locality}
+                          onChange={(e) => setLocality(e.target.value)}
+                          className="w-full px-4 py-3 rounded-xl bg-surface-container border border-border text-foreground text-sm focus:outline-none focus:border-accent transition-all"
+                        >
+                          {KOLKATA_LOCALITIES.map((loc) => (
+                            <option key={loc} value={loc} className="bg-background text-foreground">
+                              {loc}
+                            </option>
+                          ))}
+                        </select>
                       </div>
 
-                      <div>
-                        <label className="block text-xs font-bold uppercase tracking-wider text-muted-foreground mb-1.5">
-                          Expected Timeline
+                      {/* Timeline */}
+                      <div className="space-y-1.5">
+                        <label className="text-xs font-bold uppercase tracking-wider text-muted-foreground flex items-center gap-1.5">
+                          <Calendar className="w-3.5 h-3.5 text-accent" />
+                          <span>Possession / Start Date</span>
                         </label>
-                        <div className="relative">
-                          <Calendar className="w-4 h-4 text-muted-foreground absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
-                          <select
-                            value={timeline}
-                            onChange={(e) => setTimeline(e.target.value)}
-                            className="w-full pl-10 pr-8 py-2.5 rounded-xl bg-surface-container border border-border/80 focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent text-sm text-foreground cursor-pointer transition-all"
-                          >
-                            {TIMELINE_OPTIONS.map((opt) => (
-                              <option key={opt} value={opt}>
-                                {opt}
-                              </option>
-                            ))}
-                          </select>
-                        </div>
+                        <select
+                          value={timeline}
+                          onChange={(e) => setTimeline(e.target.value)}
+                          className="w-full px-4 py-3 rounded-xl bg-surface-container border border-border text-foreground text-sm focus:outline-none focus:border-accent transition-all"
+                        >
+                          {TIMELINE_OPTIONS.map((time) => (
+                            <option key={time} value={time} className="bg-background text-foreground">
+                              {time}
+                            </option>
+                          ))}
+                        </select>
                       </div>
                     </div>
 
+                    {/* Trust badges */}
+                    <div className="p-4 rounded-xl bg-surface-container border border-border/60 flex flex-wrap items-center justify-between gap-2 text-xs text-muted-foreground">
+                      <div className="flex items-center gap-1.5">
+                        <ShieldCheck className="w-4 h-4 text-accent" />
+                        <span>Zero Obligation Consultation</span>
+                      </div>
+                      <div className="flex items-center gap-1.5">
+                        <CheckCircle2 className="w-4 h-4 text-emerald-500" />
+                        <span>Kolkata On-Site Survey Included</span>
+                      </div>
+                    </div>
+
+                    {/* Submit Button */}
                     <button
                       type="submit"
-                      className="w-full flex items-center justify-center gap-2.5 py-4 rounded-xl bg-primary text-primary-foreground font-bold text-sm tracking-wide uppercase shadow-xl hover:bg-primary/90 transition-all cursor-pointer"
+                      className="w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-accent via-primary to-accent text-white font-extrabold text-sm sm:text-base tracking-wide uppercase hover:opacity-95 transition-all shadow-xl shadow-accent/20 cursor-pointer flex items-center justify-center gap-2"
                     >
-                      <span>Unlock Itemized Breakdown & Send to WhatsApp</span>
-                      <ArrowRight className="w-4 h-4 text-accent" />
+                      <span>Generate Itemized Estimate via WhatsApp</span>
+                      <ArrowRight className="w-4 h-4" />
                     </button>
                   </form>
                 ) : (
-                  /* Post-Submission Screen */
-                  <div className="text-center py-8 space-y-5">
-                    <div className="w-16 h-16 rounded-full bg-emerald-500/20 text-emerald-500 border border-emerald-500/30 flex items-center justify-center mx-auto">
+                  /* Post Submission State */
+                  <div className="py-8 text-center space-y-4">
+                    <div className="w-16 h-16 rounded-full bg-emerald-500/20 text-emerald-500 flex items-center justify-center mx-auto mb-2">
                       <Check className="w-8 h-8" />
                     </div>
-
-                    <div className="space-y-2">
-                      <h4 className="text-2xl font-extrabold font-heading text-foreground">
-                        Estimate Ready &amp; Sent!
-                      </h4>
-                      <p className="text-sm text-muted-foreground max-w-md mx-auto leading-relaxed font-normal">
-                        Your custom interior specification for your <strong className="text-foreground">{selectedConfig.name} ({sqft.toLocaleString('en-IN')} sq.ft)</strong> has been prepared. If WhatsApp didn&apos;t open automatically, click the button below to connect directly with our Lead Architect.
-                      </p>
-                    </div>
+                    <h4 className="text-2xl font-extrabold font-heading text-foreground">
+                      Quotation Generated!
+                    </h4>
+                    <p className="text-sm text-muted-foreground max-w-md mx-auto leading-relaxed">
+                      We have redirected your specification to our Lead Architect on WhatsApp. You can also re-open the link below anytime.
+                    </p>
 
                     <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-3">
                       <button
-                        type="button"
                         onClick={() => {
+                          const submission: LeadSubmissionData = {
+                            name,
+                            phone,
+                            locality,
+                            timeline,
+                            config: selectedConfig.name,
+                            scope: selectedScope.name,
+                            tier: selectedTier.name,
+                            sqft,
+                            minLakhs: estimate.minCostLakhs,
+                            maxLakhs: estimate.maxCostLakhs,
+                          };
                           const ownerPhone = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '919830000000';
-                          const waUrl = buildWhatsAppEstimateUrl(
-                            {
-                              name,
-                              phone,
-                              locality,
-                              timeline,
-                              config: selectedConfig.name,
-                              scope: selectedScope.name,
-                              tier: selectedTier.name,
-                              sqft,
-                              minLakhs: estimate.minCostLakhs,
-                              maxLakhs: estimate.maxCostLakhs,
-                            },
-                            ownerPhone
-                          );
-                          window.open(waUrl, '_blank', 'noopener,noreferrer');
+                          const waUrl = buildWhatsAppEstimateUrl(submission, ownerPhone);
+                          window.open(waUrl, '_blank');
                         }}
-                        className="px-6 py-3 rounded-full bg-[#25D366] text-black font-bold text-xs uppercase tracking-wider flex items-center gap-2 hover:bg-[#20ba59] transition-all cursor-pointer shadow-lg"
+                        className="px-6 py-3 rounded-full bg-primary text-primary-foreground font-bold text-xs uppercase tracking-wider hover:bg-primary/90 transition-all cursor-pointer shadow-lg"
                       >
-                        <span>Open in WhatsApp</span>
-                        <ArrowRight className="w-4 h-4" />
+                        Re-open WhatsApp Chat
                       </button>
 
                       <button
-                        type="button"
                         onClick={closeEstimator}
-                        className="px-6 py-3 rounded-full bg-surface-container text-foreground font-semibold text-xs uppercase tracking-wider hover:bg-surface-container-high transition-all cursor-pointer"
+                        className="px-6 py-3 rounded-full bg-surface-container text-muted-foreground hover:text-foreground font-semibold text-xs transition-colors cursor-pointer"
                       >
-                        Close Window
+                        Return to Portfolio
                       </button>
                     </div>
                   </div>
@@ -639,27 +755,27 @@ export function CostEstimatorModal() {
             )}
           </div>
 
-          {/* Modal Footer (Controls for Steps 1-4) */}
-          {step < 5 && (
-            <div className="flex items-center justify-between px-6 py-4 border-t border-border/70 bg-surface-container-low/40">
-              <button
-                type="button"
-                onClick={closeEstimator}
-                className="text-xs font-semibold text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
-              >
-                Cancel
-              </button>
+          {/* Modal Footer Controls */}
+          <div className="px-6 py-4 border-t border-border/70 bg-surface-container-low/50 flex items-center justify-between">
+            <button
+              type="button"
+              onClick={closeEstimator}
+              className="text-xs font-semibold text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
+            >
+              Cancel
+            </button>
 
+            {step < 5 && (
               <button
                 type="button"
                 onClick={() => setStep((s) => Math.min(5, s + 1))}
                 className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-primary text-primary-foreground text-xs font-bold uppercase tracking-wider hover:bg-primary/90 transition-all cursor-pointer shadow-md"
               >
-                <span>{step === 4 ? 'View Detailed Estimate' : 'Next Step'}</span>
+                <span>Next Step</span>
                 <ArrowRight className="w-3.5 h-3.5 text-accent" />
               </button>
-            </div>
-          )}
+            )}
+          </div>
         </motion.div>
       </div>
     </AnimatePresence>
