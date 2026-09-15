@@ -14,7 +14,7 @@ const insights = [
     title: "The Enduring Poetry of Roman Travertine in Contemporary Living",
     excerpt: "Why unpolished, porous natural stones bring timeless tactile grounding into modern residences.",
     readTime: "7 min read",
-    image: "/images/da/hero1.jpg",
+    image: "/images/da/user_uploads/upload_15.jpeg",
   },
   {
     slug: "sculpting-space-with-light-2400k-ambient-philosophy",
@@ -22,7 +22,7 @@ const insights = [
     title: "Sculpting Space with Light: The 2400K Ambient Philosophy",
     excerpt: "How indirect architectural illumination, warm cove details, and shadow play cultivate nocturnal calm.",
     readTime: "6 min read",
-    image: "/images/da/hero2.jpg",
+    image: "/images/da/user_uploads/upload_21.jpeg",
   },
   {
     slug: "architectural-restraint-the-power-of-negative-space",
@@ -30,7 +30,7 @@ const insights = [
     title: "Architectural Restraint: The Power of Negative Space",
     excerpt: "Why quiet luxury isn't about more furniture, but giving extraordinary materials room to breathe.",
     readTime: "8 min read",
-    image: "/images/da/hero3.jpg",
+    image: "/images/da/user_uploads/upload_06.jpeg",
   },
 ];
 

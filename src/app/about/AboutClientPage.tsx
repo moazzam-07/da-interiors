@@ -87,7 +87,7 @@ export function AboutClientPage() {
             >
               <div className="relative h-[400px] sm:h-[500px] rounded-[2rem] overflow-hidden shadow-2xl shadow-primary/10 border border-white/20">
                 <Image
-                  src="/images/da/living1.jpg"
+                  src="/images/da/user_uploads/upload_15.jpeg"
                   alt="DA Interiors Living Studio"
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"

@@ -11,22 +11,22 @@ const showcaseItems = [
   {
     id: 1,
     title: "The Bellevue Penthouse",
-    imageUrl: "/images/da/hero1.jpg",
+    imageUrl: "/images/da/user_uploads/upload_15.jpeg",
   },
   {
     id: 2,
-    title: "Minimalist Stone Villa",
-    imageUrl: "/images/da/hero2.jpg",
+    title: "Culinary Stone Pavilion",
+    imageUrl: "/images/da/user_uploads/upload_04.jpg",
   },
   {
     id: 3,
-    title: "The Atelier Living Lounge",
-    imageUrl: "/images/da/hero3.jpg",
+    title: "Double-Height Grand Foyer",
+    imageUrl: "/images/da/user_uploads/upload_08.jpeg",
   },
   {
     id: 4,
     title: "Japandi Master Sanctuary",
-    imageUrl: "/images/da/bedroom1.jpg",
+    imageUrl: "/images/da/user_uploads/upload_07.jpeg",
   },
 ];
 

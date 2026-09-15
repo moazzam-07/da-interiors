@@ -44,7 +44,7 @@ export function AboutSection() {
           >
             <div className="relative h-[440px] md:h-[540px] rounded-3xl overflow-hidden shadow-2xl shadow-primary/10 border border-white/20">
               <Image
-                src="/images/da/living1.jpg"
+                src="/images/da/user_uploads/upload_15.jpeg"
                 alt="DA Interiors Studio & Architecture"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"

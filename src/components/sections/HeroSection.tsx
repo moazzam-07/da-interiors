@@ -9,52 +9,52 @@ import { ShimmerButton } from "@/components/ui/shimmer-button";
 
 const LUXURY_PORTFOLIO_IMAGES: StreamImage[] = [
   {
-    src: "/images/da/hero1.jpg",
-    alt: "Modern minimalist penthouse living room with panoramic glazing",
+    src: "/images/da/user_uploads/upload_15.jpeg",
+    alt: "Modern luxury open-concept living lounge with warm architectural cove lighting",
   },
   {
-    src: "/images/da/living1.jpg",
-    alt: "Bespoke travertine living sanctuary with sculptural furniture",
+    src: "/images/da/user_uploads/upload_04.jpg",
+    alt: "Monolithic luxury modular kitchen with textured stone and dark glass cabinetry",
   },
   {
-    src: "/images/da/hero2.jpg",
-    alt: "Architectural dining salon with warm walnut millwork",
+    src: "/images/da/user_uploads/upload_07.jpeg",
+    alt: "Serene master suite sanctuary with curved bouclé headboard and wall panelling",
   },
   {
-    src: "/images/da/kitchen1.jpg",
-    alt: "Custom marble monolithic kitchen island",
+    src: "/images/da/user_uploads/upload_08.jpeg",
+    alt: "Sculptural double-height entrance foyer with floating architectural staircase",
   },
   {
-    src: "/images/da/hero3.jpg",
-    alt: "Sun-drenched luxury lounge with textured bouclé textiles",
+    src: "/images/da/user_uploads/upload_02.jpeg",
+    alt: "Contemporary designer kitchen with fluted gold accents and quartz worktops",
   },
   {
-    src: "/images/da/bedroom1.jpg",
-    alt: "Serene primary suite with integrated acoustic timber walls",
+    src: "/images/da/user_uploads/upload_12.jpeg",
+    alt: "Bespoke media wall lounge with fluted acoustic paneling and recessed lighting",
   },
   {
-    src: "/images/da/project1.jpg",
-    alt: "Private villa atrium featuring natural stone and architectural lighting",
+    src: "/images/da/user_uploads/upload_27.jpg",
+    alt: "Architectural master bedroom with integrated warm timber joinery",
   },
   {
-    src: "/images/da/project2.jpg",
-    alt: "Warm minimalist residence with bespoke joinery",
+    src: "/images/da/user_uploads/upload_22.jpeg",
+    alt: "Curated formal dining salon with custom chandelier and marble flooring",
   },
   {
-    src: "/images/da/project3.jpg",
-    alt: "Heritage townhouse restoration with contemporary interior lines",
+    src: "/images/da/user_uploads/upload_16.jpeg",
+    alt: "Minimalist master bath sanctuary with sculptural freestanding soaking tub",
   },
   {
-    src: "/images/da/project4.jpg",
-    alt: "High-end residential sanctuary with organic material palette",
+    src: "/images/da/user_uploads/upload_03.jpeg",
+    alt: "U-shaped executive modular kitchen with dark smoked veneer and ambient coves",
   },
   {
-    src: "/images/da/project5.jpg",
-    alt: "Executive penthouse reading lounge with dark smoked oak",
+    src: "/images/da/user_uploads/upload_26.jpeg",
+    alt: "Modern luxury bedroom with geometric timber feature wall and ambient glow",
   },
   {
-    src: "/images/da/project6.jpg",
-    alt: "Sculptural foyer with fluted marble and bronze accents",
+    src: "/images/da/user_uploads/upload_20.jpeg",
+    alt: "Spacious private living salon with bespoke furnishings and floor-to-ceiling drapery",
   },
 ];
 

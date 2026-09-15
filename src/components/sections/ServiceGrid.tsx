@@ -10,7 +10,7 @@ const services = [
     title: "Full-Residence Architecture & Renovation",
     description: "Complete architectural layout planning, structural gut renovations, and spatial transformations for luxury penthouses and private villas.",
     Icon: House,
-    imageSrc: "/images/da/hero1.jpg",
+    imageSrc: "/images/da/user_uploads/upload_15.jpeg",
     stats: [
       { label: "Residences Delivered", value: "180+" },
       { label: "Client Rating", value: "4.98★" },
@@ -21,7 +21,7 @@ const services = [
     title: "Bespoke Interior Styling & Curation",
     description: "Custom furniture commissions, tactile bouclé & cashmere textiles, fine art curation, and white-glove finishing for timeless quiet luxury.",
     Icon: Sparkles,
-    imageSrc: "/images/da/hero3.jpg",
+    imageSrc: "/images/da/user_uploads/upload_06.jpeg",
     stats: [
       { label: "Bespoke Pieces", value: "400+" },
       { label: "Artisan Network", value: "50+ Mills" },
@@ -32,7 +32,7 @@ const services = [
     title: "Luxury Kitchen & Master Bath Sanctuaries",
     description: "Bookmatched Italian Calacatta marble, fluted custom millwork, concealed chef appliances, and architectural wellness spa bathrooms.",
     Icon: Droplet,
-    imageSrc: "/images/da/kitchen1.jpg",
+    imageSrc: "/images/da/user_uploads/upload_02.jpeg",
     stats: [
       { label: "Sanctuaries Built", value: "120+" },
       { label: "Quarry Direct", value: "100%" },
@@ -43,7 +43,7 @@ const services = [
     title: "Boutique Hospitality & Commercial Spaces",
     description: "Atmospheric interior architecture and branding for luxury boutique hotels, fine dining destinations, and executive founder suites.",
     Icon: Award,
-    imageSrc: "/images/da/hospitality1.jpg",
+    imageSrc: "/images/da/user_uploads/upload_22.jpeg",
     stats: [
       { label: "Destinations", value: "45+" },
       { label: "Guest Dwell Lift", value: "+35%" },
@@ -54,7 +54,7 @@ const services = [
     title: "Custom Millwork & Architectural Joinery",
     description: "Bespoke walk-in dressing suites, floating stone hearths, fluted wall paneling, and concealed pivot doors crafted to the millimeter.",
     Icon: Hammer,
-    imageSrc: "/images/da/millwork1.jpg",
+    imageSrc: "/images/da/user_uploads/upload_12.jpeg",
     stats: [
       { label: "Precision Tolerance", value: "0.5mm" },
       { label: "Craft Warranty", value: "10 Years" },
@@ -65,7 +65,7 @@ const services = [
     title: "3D Photorealistic Pre-Visualization & VR",
     description: "Hyper-accurate 8K digital twins, daylight simulation studies, and interactive VR walkthroughs before breaking ground.",
     Icon: Camera,
-    imageSrc: "/images/da/project1.jpg",
+    imageSrc: "/images/da/user_uploads/upload_27.jpg",
     stats: [
       { label: "Resolution", value: "8K Ultra" },
       { label: "Material Precision", value: "100%" },
@@ -76,7 +76,7 @@ const services = [
     title: "Turnkey Project Stewardship & Handover",
     description: "From structural blueprint and marble procurement to contractor oversight, white-glove installation, and champagne reveal.",
     Icon: Compass,
-    imageSrc: "/images/da/project7.jpg",
+    imageSrc: "/images/da/user_uploads/upload_08.jpeg",
     customLink: "/services",
     isCustomCard: true,
     stats: [

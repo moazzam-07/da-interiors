@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "The Design Journal | DA Interiors",
     description: "Architectural essays, noble material studies, and contemplative living notes.",
-    images: ["/images/da/hero1.jpg"],
+    images: ["/images/da/user_uploads/upload_15.jpeg"],
   },
 };
 

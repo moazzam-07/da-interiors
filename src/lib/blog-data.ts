@@ -82,7 +82,7 @@ export const BLOG_POSTS: BlogPost[] = [
     formattedDate: "February 14, 2025",
     readTime: "7 min read",
     featured: true,
-    heroImage: "/images/da/hero1.jpg",
+    heroImage: "/images/da/user_uploads/upload_15.jpeg",
     author: AUTHORS.arjun,
     tags: ["Travertine", "Natural Stone", "Material Purity", "Italian Quarries", "Living Architecture"],
     tableOfContents: [
@@ -113,7 +113,7 @@ export const BLOG_POSTS: BlogPost[] = [
           "In our recent Bellevue Penthouse commission, we employed vein-cut Roman Navona slabs on the primary hearth wall to draw the eye upward toward the 4.2-meter double-height glazing, while transitioning to cross-cut floor tiles to evoke a grounded, grounding courtyard feeling indoors.",
         ],
         image: {
-          src: "/images/da/living1.jpg",
+          src: "/images/da/user_uploads/upload_20.jpeg",
           alt: "Bespoke travertine living sanctuary with sculptural furniture",
           caption: "Custom Navona travertine hearth wall paired with hand-loomed wool textiles and brushed bronze fixtures.",
         },
@@ -159,7 +159,7 @@ export const BLOG_POSTS: BlogPost[] = [
     publishedAt: "2025-01-28",
     formattedDate: "January 28, 2025",
     readTime: "6 min read",
-    heroImage: "/images/da/hero2.jpg",
+    heroImage: "/images/da/user_uploads/upload_21.jpeg",
     author: AUTHORS.vikram,
     tags: ["Architectural Lighting", "2400K Coves", "Circadian Design", "Shadow Play", "Quiet Luxury"],
     tableOfContents: [
@@ -197,7 +197,7 @@ export const BLOG_POSTS: BlogPost[] = [
           "Suddenly, the fluting on a walnut wall reveals its micro-shadows; the honed travertine glows from within; and the architectural envelope feels expansive, airy, and warm without a single bulb visible to the naked eye.",
         ],
         image: {
-          src: "/images/da/hero2.jpg",
+          src: "/images/da/user_uploads/upload_25.jpeg",
           alt: "Architectural dining salon with warm walnut millwork and ambient cove lighting",
           caption: "Concealed 2400K cove details wash the ceiling plane, providing glare-free spatial glow for formal dining.",
         },
@@ -235,7 +235,7 @@ export const BLOG_POSTS: BlogPost[] = [
     publishedAt: "2025-01-10",
     formattedDate: "January 10, 2025",
     readTime: "8 min read",
-    heroImage: "/images/da/hero3.jpg",
+    heroImage: "/images/da/user_uploads/upload_06.jpeg",
     author: AUTHORS.meera,
     tags: ["Negative Space", "Quiet Luxury", "Spatial Discipline", "Minimalism", "High-End Residential"],
     tableOfContents: [
@@ -273,7 +273,7 @@ export const BLOG_POSTS: BlogPost[] = [
           "Standing at the entrance of a DA Interiors residence, you immediately perceive the horizon line, the play of daylight on natural stone flooring, and the uninterrupted rhythm of timber millwork.",
         ],
         image: {
-          src: "/images/da/hero3.jpg",
+          src: "/images/da/user_uploads/upload_05.jpeg",
           alt: "Sun-drenched luxury lounge with textured bouclé textiles and generous spatial rhythm",
           caption: "Generous spatial pacing creates an atmosphere of unhurried elegance in this private penthouse residence.",
         },
@@ -311,7 +311,7 @@ export const BLOG_POSTS: BlogPost[] = [
     publishedAt: "2024-12-18",
     formattedDate: "December 18, 2024",
     readTime: "7 min read",
-    heroImage: "/images/da/millwork1.jpg",
+    heroImage: "/images/da/user_uploads/upload_12.jpeg",
     author: AUTHORS.vikram,
     tags: ["Custom Millwork", "Joinery", "Pivot Doors", "Smoked Oak", "Architectural Detailing"],
     tableOfContents: [
@@ -349,7 +349,7 @@ export const BLOG_POSTS: BlogPost[] = [
           "The result is a library, media suite, or primary bedroom with near-monastic acoustic quietude—attenuating urban traffic noise and mechanical resonance to create a cocoon of silence.",
         ],
         image: {
-          src: "/images/da/project2.jpg",
+          src: "/images/da/user_uploads/upload_14.jpeg",
           alt: "Warm minimalist residence featuring custom joinery and integrated architectural doors",
           caption: "Seamless floor-to-ceiling timber joinery with concealed acoustic dampening and integrated brass reveals.",
         },
@@ -386,7 +386,7 @@ export const BLOG_POSTS: BlogPost[] = [
     publishedAt: "2024-11-30",
     formattedDate: "November 30, 2024",
     readTime: "6 min read",
-    heroImage: "/images/da/kitchen1.jpg",
+    heroImage: "/images/da/user_uploads/upload_16.jpeg",
     author: AUTHORS.arjun,
     tags: ["Master Bath", "Spa Sanctuary", "Monolithic Basins", "Calacatta Marble", "Wellness Architecture"],
     tableOfContents: [
@@ -424,7 +424,7 @@ export const BLOG_POSTS: BlogPost[] = [
           "Frameless 12mm low-iron glass enclosures recessed into the ceiling slab allow the spatial envelope to feel boundless and weightless.",
         ],
         image: {
-          src: "/images/da/bathroom1.jpg",
+          src: "/images/da/user_uploads/upload_23.jpeg",
           alt: "Bespoke stone craftsmanship and architectural bathroom sanctuary",
           caption: "Continuous marble slab flooring flows seamlessly into the curb-free walk-in rain shower suite.",
         },
@@ -462,7 +462,7 @@ export const BLOG_POSTS: BlogPost[] = [
     publishedAt: "2024-11-12",
     formattedDate: "November 12, 2024",
     readTime: "9 min read",
-    heroImage: "/images/da/project3.jpg",
+    heroImage: "/images/da/user_uploads/upload_08.jpeg",
     author: AUTHORS.meera,
     tags: ["Kolkata Heritage", "Colonial Architecture", "Restoration", "Alipore Estates", "Ballygunge Residences"],
     tableOfContents: [
@@ -500,7 +500,7 @@ export const BLOG_POSTS: BlogPost[] = [
           "We route high-efficiency VRV air conduits through sub-floor plenums, bespoke architectural millwork chases, and restore original louvered transom vents to serve as architectural return-air grilles.",
         ],
         image: {
-          src: "/images/da/project3.jpg",
+          src: "/images/da/user_uploads/upload_13.jpeg",
           alt: "Heritage townhouse restoration with contemporary interior lines and restored proportions",
           caption: "Restored 4.2-meter high ceilings and arched colonnades in Ballygunge paired with contemporary bronze millwork.",
         },
@@ -538,7 +538,7 @@ export const BLOG_POSTS: BlogPost[] = [
     publishedAt: "2024-10-24",
     formattedDate: "October 24, 2024",
     readTime: "7 min read",
-    heroImage: "/images/da/project1.jpg",
+    heroImage: "/images/da/user_uploads/upload_28.jpeg",
     author: AUTHORS.arjun,
     tags: ["Biophilic Design", "Internal Courtyard", "Atrium Architecture", "Natural Light", "Indoor Gardens"],
     tableOfContents: [
@@ -576,7 +576,7 @@ export const BLOG_POSTS: BlogPost[] = [
           "The white-noise frequency of softly moving water acts as a natural acoustic shield, masking exterior street noise and instilling a profound auditory calm throughout the living and dining wings.",
         ],
         image: {
-          src: "/images/da/project1.jpg",
+          src: "/images/da/user_uploads/upload_29.jpeg",
           alt: "Private villa atrium featuring natural stone and architectural lighting",
           caption: "A central glass-encased courtyard brings daylight and botanical tranquility deep into the living spaces.",
         },
@@ -613,7 +613,7 @@ export const BLOG_POSTS: BlogPost[] = [
     publishedAt: "2024-10-02",
     formattedDate: "October 2, 2024",
     readTime: "8 min read",
-    heroImage: "/images/da/marble_feature.jpg",
+    heroImage: "/images/da/user_uploads/upload_04.jpg",
     author: AUTHORS.arjun,
     tags: ["Carrara Marble", "Makrana White", "Stone Sourcing", "Bookmatching", "Master Masonry"],
     tableOfContents: [
@@ -651,7 +651,7 @@ export const BLOG_POSTS: BlogPost[] = [
           "It is the very stone from which the Taj Mahal and Victoria Memorial were erected. When we integrate honed Makrana into contemporary Kolkata villas, it bridges classical imperial history with modern minimalist purity.",
         ],
         image: {
-          src: "/images/da/marble_feature.jpg",
+          src: "/images/da/user_uploads/upload_03.jpeg",
           alt: "Bespoke stone craftsmanship and noble quarry marble installation",
           caption: "Hand-selected Calacatta marble dry-laid and numbered prior to final on-site installation.",
         },
