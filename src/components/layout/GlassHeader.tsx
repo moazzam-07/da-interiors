@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
 import { RainbowButton } from "@/components/ui/rainbow-button";
 import Link from "next/link";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Sparkles } from "lucide-react";
 import { useBooking } from "@/components/booking/BookingProvider";
 
 import { LogoIcon } from "@/components/ui/logo-icon";
@@ -24,7 +24,7 @@ export function GlassHeader() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [hoveredLink, setHoveredLink] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const { openBooking, openWhatsApp } = useBooking();
+  const { openBooking, openWhatsApp, openEstimator } = useBooking();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -70,7 +70,7 @@ export function GlassHeader() {
             <LogoText className="h-5.5 w-auto" />
           </Link>
 
-          {/* Desktop Nav links */}
+          {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-1">
             {navLinks.map((link) => (
               <a
@@ -92,8 +92,19 @@ export function GlassHeader() {
             ))}
           </nav>
 
-          {/* Right Side: CTA + Mobile Toggle */}
-          <div className="flex items-center gap-3">
+          {/* Right Side: Cost Estimator + CTA + Mobile Toggle */}
+          <div className="flex items-center gap-2.5">
+            <button
+              onClick={openEstimator}
+              className={cn(
+                "hidden lg:inline-flex items-center gap-1.5 rounded-full border border-accent/40 bg-surface-container-low/60 hover:bg-accent/15 px-3.5 text-xs font-semibold text-accent transition-all cursor-pointer",
+                isScrolled ? "h-9" : "h-10"
+              )}
+            >
+              <Sparkles className="w-3.5 h-3.5 text-accent" />
+              <span>Cost Estimator</span>
+            </button>
+
             <RainbowButton 
               onClick={() => openBooking()}
               className={cn(
@@ -151,8 +162,16 @@ export function GlassHeader() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.35 }}
-                className="w-full max-w-xs mt-4"
+                className="w-full max-w-xs mt-4 flex flex-col gap-3"
               >
+                <button
+                  onClick={() => { setMobileOpen(false); openEstimator(); }}
+                  className="w-full flex items-center justify-center gap-2 h-12 rounded-full border border-accent/50 bg-accent/10 hover:bg-accent/20 text-accent font-bold text-sm tracking-wide transition-all cursor-pointer"
+                >
+                  <Sparkles className="w-4 h-4 text-accent" />
+                  <span>Free Cost Estimator</span>
+                </button>
+
                 <RainbowButton
                   onClick={() => { setMobileOpen(false); openBooking(); }}
                   className="h-12 px-8 text-base shadow-lg text-white font-bold tracking-wide cursor-pointer"
@@ -168,7 +187,7 @@ export function GlassHeader() {
                 transition={{ delay: 0.4 }}
                 className="flex gap-6 mt-8 text-sm font-medium text-muted-foreground items-center"
               >
-                <a href="tel:+96892000000" className="hover:text-primary transition-colors">Call Us</a>
+                <a href="tel:+919830000000" className="hover:text-primary transition-colors">Call Us</a>
                 <span className="text-border">|</span>
                 <button
                   onClick={() => { setMobileOpen(false); openWhatsApp(); }}

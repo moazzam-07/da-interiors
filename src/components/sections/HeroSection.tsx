@@ -3,7 +3,7 @@
 import * as React from "react";
 import { useBooking } from "@/components/booking/BookingProvider";
 import { motion } from "framer-motion";
-import { ArrowRight, Compass } from "lucide-react";
+import { ArrowRight, Compass, Sparkles } from "lucide-react";
 import { ImageStreamHero, type StreamImage } from "@/components/ui/image-stream-hero";
 import { ShimmerButton } from "@/components/ui/shimmer-button";
 
@@ -59,7 +59,7 @@ const LUXURY_PORTFOLIO_IMAGES: StreamImage[] = [
 ];
 
 export function HeroSection() {
-  const { openBooking } = useBooking();
+  const { openBooking, openEstimator } = useBooking();
 
   return (
     <section className="relative w-full overflow-hidden bg-background">
@@ -105,7 +105,7 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-lg mx-auto"
+          className="flex flex-col sm:flex-row items-center justify-center gap-3.5 max-w-xl mx-auto"
         >
           {/* Magic UI Shimmer Button — Warm Architectural Gold */}
           <ShimmerButton
@@ -123,10 +123,20 @@ export function HeroSection() {
             </span>
           </ShimmerButton>
 
+          {/* Cost Estimator Button */}
+          <button
+            type="button"
+            onClick={openEstimator}
+            className="group relative w-full sm:w-auto inline-flex items-center justify-center rounded-full px-6 py-3.5 text-xs sm:text-sm font-medium tracking-widest uppercase border border-accent/40 bg-surface-container-low/85 hover:bg-surface-container-low text-foreground hover:text-accent shadow-sm backdrop-blur-md hover:scale-[1.02] hover:border-accent/70 transition-all cursor-pointer"
+          >
+            <Sparkles className="w-3.5 h-3.5 text-accent mr-2" />
+            <span>Estimate Cost</span>
+          </button>
+
           {/* Luxury Companion Pill */}
           <a
             href="#portfolio"
-            className="group relative w-full sm:w-auto inline-flex items-center justify-center rounded-full px-8 py-3.5 text-xs sm:text-sm font-medium tracking-widest uppercase border border-accent/40 bg-surface-container-low/85 hover:bg-surface-container-low text-foreground hover:text-accent shadow-sm backdrop-blur-md hover:scale-[1.02] hover:border-accent/70 transition-all"
+            className="group relative w-full sm:w-auto inline-flex items-center justify-center rounded-full px-6 py-3.5 text-xs sm:text-sm font-medium tracking-widest uppercase text-muted-foreground hover:text-foreground transition-colors"
           >
             <span>Selected Works</span>
           </a>

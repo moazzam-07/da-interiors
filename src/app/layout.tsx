@@ -4,6 +4,8 @@ import "./globals.css";
 import { BookingProvider } from "@/components/booking/BookingProvider";
 import { BookingModal } from "@/components/booking/BookingModal";
 import { WhatsAppModal } from "@/components/booking/WhatsAppModal";
+import { CostEstimatorModal } from "@/components/estimator/CostEstimatorModal";
+import { TimedEstimatePopup } from "@/components/estimator/TimedEstimatePopup";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -36,6 +38,8 @@ export default function RootLayout({
           {children}
           <BookingModal />
           <WhatsAppModal />
+          <CostEstimatorModal />
+          <TimedEstimatePopup />
         </BookingProvider>
       </body>
     </html>

@@ -41,6 +41,9 @@ interface BookingContextValue {
   isWhatsAppOpen: boolean;
   openWhatsApp: () => void;
   closeWhatsApp: () => void;
+  isEstimatorOpen: boolean;
+  openEstimator: () => void;
+  closeEstimator: () => void;
 }
 
 // ─── Initial State ───
@@ -111,6 +114,7 @@ const BookingContext = createContext<BookingContextValue | undefined>(undefined)
 export function BookingProvider({ children }: { children: ReactNode }) {
   const [state, dispatch] = useReducer(bookingReducer, initialState);
   const [isWhatsAppOpen, setIsWhatsAppOpen] = useState(false);
+  const [isEstimatorOpen, setIsEstimatorOpen] = useState(false);
 
   const openBooking = useCallback((serviceSlug?: string) => {
     dispatch({ type: 'OPEN', payload: serviceSlug });
@@ -140,6 +144,14 @@ export function BookingProvider({ children }: { children: ReactNode }) {
     setIsWhatsAppOpen(false);
   }, []);
 
+  const openEstimator = useCallback(() => {
+    setIsEstimatorOpen(true);
+  }, []);
+
+  const closeEstimator = useCallback(() => {
+    setIsEstimatorOpen(false);
+  }, []);
+
   return (
     <BookingContext.Provider
       value={{
@@ -152,6 +164,9 @@ export function BookingProvider({ children }: { children: ReactNode }) {
         isWhatsAppOpen,
         openWhatsApp,
         closeWhatsApp,
+        isEstimatorOpen,
+        openEstimator,
+        closeEstimator,
       }}
     >
       {children}
