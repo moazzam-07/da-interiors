@@ -5,6 +5,7 @@ import { WorkShowcase } from "@/components/sections/WorkShowcase";
 import { ServiceGrid } from "@/components/sections/ServiceGrid";
 import { WhyDAInteriors } from "@/components/sections/WhyKydmah";
 import { HowItWorks } from "@/components/sections/HowItWorks";
+import { CostEstimatorSection } from "@/components/sections/CostEstimatorSection";
 import { ReviewCarousel } from "@/components/sections/ReviewCarousel";
 import { AboutSection } from "@/components/sections/AboutSection";
 import { InsightsSection } from "@/components/sections/InsightsSection";
@@ -36,6 +37,9 @@ export default function Home() {
 
       {/* The 4-Stage Architectural Journey */}
       <HowItWorks />
+
+      {/* Interactive Turnkey Cost Estimator Section */}
+      <CostEstimatorSection />
 
       {/* Client Stories & Reviews */}
       <section id="reviews">

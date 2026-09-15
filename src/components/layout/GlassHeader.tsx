@@ -92,19 +92,8 @@ export function GlassHeader() {
             ))}
           </nav>
 
-          {/* Right Side: Cost Estimator + CTA + Mobile Toggle */}
+          {/* Right Side: CTA + Mobile Toggle */}
           <div className="flex items-center gap-2.5">
-            <button
-              onClick={openEstimator}
-              className={cn(
-                "hidden lg:inline-flex items-center gap-1.5 rounded-full border border-accent/40 bg-surface-container-low/60 hover:bg-accent/15 px-3.5 text-xs font-semibold text-accent transition-all cursor-pointer",
-                isScrolled ? "h-9" : "h-10"
-              )}
-            >
-              <Sparkles className="w-3.5 h-3.5 text-accent" />
-              <span>Cost Estimator</span>
-            </button>
-
             <RainbowButton 
               onClick={() => openBooking()}
               className={cn(
