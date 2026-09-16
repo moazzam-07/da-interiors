@@ -1,0 +1,72 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 240" width="3000" height="720" fill="none">
+  <defs>
+    <linearGradient id="gold_grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D8B583" />
+      <stop offset="50%" stop-color="#C29D6D" />
+      <stop offset="100%" stop-color="#A67C47" />
+    </linearGradient>
+  </defs>
+
+  <!-- Emblem Monogram Badge -->
+  <g transform="translate(40, 20)">
+    <rect
+      x="0"
+      y="0"
+      width="200"
+      height="200"
+      rx="44"
+      fill="none"
+      stroke="url(#gold_grad)"
+      stroke-width="7"
+    />
+    <!-- Letter D (Rich Espresso/Charcoal) -->
+    <path
+      d="M45 44V156M45 44H84C114 44 134 66 134 100C134 134 114 156 84 156H45"
+      fill="none"
+      stroke="#1C1917"
+      stroke-width="16"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+    <!-- Letter A (Champagne Gold) -->
+    <path
+      d="M102 156L140 44L178 156"
+      fill="none"
+      stroke="url(#gold_grad)"
+      stroke-width="16"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+    <!-- Crossbar of A -->
+    <path
+      d="M117 122H163"
+      fill="none"
+      stroke="url(#gold_grad)"
+      stroke-width="12"
+      stroke-linecap="round"
+    />
+  </g>
+
+  <!-- Brand Typography -->
+  <g transform="translate(280, 0)">
+    <text
+      x="0"
+      y="126"
+      fill="#1C1917"
+      font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif"
+      font-weight="900"
+      font-size="76"
+      letter-spacing="14"
+    >DA INTERIORS</text>
+    <text
+      x="6"
+      y="178"
+      fill="#C29D6D"
+      font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif"
+      font-weight="700"
+      font-size="24"
+      letter-spacing="18"
+    >ARCHITECTURE &amp; LIVING</text>
+  </g>
+</svg>
