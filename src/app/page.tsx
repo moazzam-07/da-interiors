@@ -2,6 +2,7 @@ import { GlassHeader } from "@/components/layout/GlassHeader";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { MetricsStrip } from "@/components/sections/MetricsStrip";
 import { WorkShowcase } from "@/components/sections/WorkShowcase";
+import { CaseStudiesSection } from "@/components/sections/CaseStudiesSection";
 import { ServiceGrid } from "@/components/sections/ServiceGrid";
 import { WhyDAInteriors } from "@/components/sections/WhyKydmah";
 import { HowItWorks } from "@/components/sections/HowItWorks";
@@ -28,6 +29,9 @@ export default function Home() {
 
       {/* Selected Portfolio / Interactive Accordion */}
       <WorkShowcase />
+
+      {/* Flagship Kolkata Case Studies Section */}
+      <CaseStudiesSection />
 
       {/* Core Studio Disciplines & Services */}
       <ServiceGrid />

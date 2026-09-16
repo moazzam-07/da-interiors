@@ -13,6 +13,7 @@ import { LogoText } from "@/components/ui/logo-text";
 
 const navLinks = [
   { name: "Portfolio", href: "/#portfolio" },
+  { name: "Case Studies", href: "/case-studies" },
   { name: "Services", href: "/#services" },
   { name: "Philosophy", href: "/#about" },
   { name: "The Process", href: "/#process" },

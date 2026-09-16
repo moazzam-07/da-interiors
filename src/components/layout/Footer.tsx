@@ -148,6 +148,7 @@ export function Footer() {
                   <div className="flex flex-col gap-2.5 text-sm">
                     <Link className='text-muted-foreground hover:text-accent transition-colors font-medium' href="/#about">Philosophy</Link>
                     <Link className='text-muted-foreground hover:text-accent transition-colors font-medium' href="/#portfolio">Selected Portfolio</Link>
+                    <Link className='text-muted-foreground hover:text-accent transition-colors font-medium' href="/case-studies">Case Studies</Link>
                     <Link className='text-muted-foreground hover:text-accent transition-colors font-medium' href="/#process">The Process</Link>
                     <Link className='text-muted-foreground hover:text-accent transition-colors font-medium' href="/blog">The Design Journal</Link>
                     <button
