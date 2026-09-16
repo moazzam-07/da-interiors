@@ -111,7 +111,7 @@ export function AboutClientPage() {
                       <div className="h-10 w-px bg-border/60 hidden sm:block" />
                       <div className="hidden sm:block">
                         <div className="text-base font-bold text-foreground leading-snug">
-                          180+ Bespoke Residences
+                          270+ Projects Delivered
                         </div>
                         <p className="text-xs text-muted-foreground mt-0.5">
                           Turnkey Private Commissions

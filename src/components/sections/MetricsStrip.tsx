@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 
 const metrics = [
-  { value: "180+", label: "Residences Delivered", suffix: "" },
+  { value: "270+", label: "Projects Delivered", suffix: "" },
   { value: "14", label: "Design Accolades", suffix: "" },
   { value: "100%", label: "Turnkey Execution", suffix: "" },
   { value: "4.98", label: "Client Satisfaction", suffix: "/5" },
@@ -11,7 +11,7 @@ const metrics = [
 
 export function MetricsStrip() {
   return (
-    <div className="relative z-20 -mt-16 mb-16 px-4">
+    <div className="relative z-20 mt-2 sm:mt-4 mb-16 px-4">
       <div className="max-w-6xl mx-auto bg-surface-container-lowest/90 backdrop-blur-xl border border-border/50 rounded-3xl shadow-xl shadow-primary/5 p-8 md:p-12 overflow-hidden relative">
         <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-accent/5 pointer-events-none" />
         

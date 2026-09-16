@@ -12,7 +12,7 @@ const services = [
     Icon: House,
     imageSrc: "/images/da/user_uploads/upload_15.jpeg",
     stats: [
-      { label: "Residences Delivered", value: "180+" },
+      { label: "Projects Delivered", value: "270+" },
       { label: "Client Rating", value: "4.98★" },
     ],
   },
