@@ -80,14 +80,19 @@ export function ReviewCarousel() {
     <SectionFrame className="bg-surface-container-low/30 relative py-16 md:py-24 overflow-hidden" hasPadding={false}>
       <div className="absolute left-0 top-0 w-1/2 h-full bg-gradient-to-r from-accent/5 to-transparent pointer-events-none" />
       
-      <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 relative z-20 px-4 max-w-6xl mx-auto">
+      <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12 relative z-20 px-4 max-w-6xl mx-auto">
         <div className="max-w-2xl">
-          <span className="text-xs sm:text-sm font-semibold tracking-[0.25em] text-accent uppercase mb-3 inline-block">
-            Client Words
-          </span>
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-surface-container-low border border-border text-xs font-semibold text-accent mb-3 tracking-wide uppercase">
+            <span className="text-amber-500 font-bold">★ 4.6</span>
+            <span className="text-muted-foreground">•</span>
+            <span>56 Google Reviews</span>
+          </div>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-foreground tracking-tight text-left">
             Trusted by discerning homeowners
           </h2>
+        </div>
+        <div className="text-xs text-muted-foreground font-medium pb-1">
+          <span className="text-emerald-500 font-bold">✓ Google Verified</span> • D A interior Design DSID
         </div>
       </div>
 

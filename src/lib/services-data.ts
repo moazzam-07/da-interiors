@@ -61,10 +61,10 @@ export const allServices: ServiceData[] = [
     expertiseTitle: "Master Architectural Practice",
     expertiseDescription: "Our architectural practice bridges structural precision with intimate lifestyle tailoring. Every wall, opening, and sightline is engineered to maximize natural light and quiet flow.",
     expertiseStats: [
-      { value: "270+", label: "Projects Delivered" },
+      { value: "275+", label: "Projects Delivered" },
       { value: "14", label: "Design Awards" },
       { value: "100%", label: "Turnkey Execution" },
-      { value: "4.98★", label: "Client Rating" },
+      { value: "4.6★", label: "Google Rating (56 Reviews)" },
     ],
     inclusions: [
       { icon: Ruler, title: "Spatial Reconfiguration", desc: "Optimizing floor plans, open-concept transitions, and sightlines." },

@@ -66,6 +66,18 @@ export function GlobalCta() {
                 Request a Design Consultation <ArrowRight className="w-5 h-5 ml-1 transition-transform group-hover:translate-x-1" />
               </span>
             </ShimmerButton>
+
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-xs sm:text-sm text-white/80 font-medium">
+              <a href="tel:07903624701" className="hover:text-accent transition-colors flex items-center gap-1.5">
+                <span>📞 Call: 079036 24701</span>
+              </a>
+              <span className="text-white/40">•</span>
+              <a href="https://wa.me/917903624701" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors flex items-center gap-1.5">
+                <span>💬 WhatsApp</span>
+              </a>
+              <span className="text-white/40">•</span>
+              <span>📍 93/2 Topsia Rd, Kolkata</span>
+            </div>
           </motion.div>
         </div>
       </SectionFrame>

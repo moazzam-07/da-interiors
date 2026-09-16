@@ -158,6 +158,27 @@ export function Footer() {
                     </button>
                   </div>
                 </div>
+
+                {/* Studio Location & Contact */}
+                <div className='flex flex-col gap-3 max-w-[280px]'>
+                  <h4 className='uppercase font-heading tracking-widest text-xs font-bold text-foreground'>Studio Visit</h4>
+                  <div className="flex flex-col gap-2 text-sm text-muted-foreground">
+                    <p className="font-medium text-foreground/90 leading-snug">
+                      93/2, Topsia Rd, near Kohinoor Market, near Sultan Sweet, Topsia, Kolkata, WB 700039
+                    </p>
+                    <div className="flex items-center gap-2 pt-0.5">
+                      <span className="inline-block w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                      <span className="text-xs font-semibold text-emerald-600 dark:text-emerald-400">Open · Closes 10 PM</span>
+                    </div>
+                    <a href="tel:07903624701" className="text-accent hover:underline font-bold pt-0.5 flex items-center gap-1.5">
+                      <span>📞 079036 24701</span>
+                    </a>
+                    <div className="flex items-center gap-1.5 text-xs pt-0.5">
+                      <span className="text-amber-500 font-bold">★ 4.6</span>
+                      <span className="text-muted-foreground font-medium">(56 Google Reviews)</span>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

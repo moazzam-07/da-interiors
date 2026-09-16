@@ -142,7 +142,7 @@ export function StepConfirm() {
         className="w-full space-y-3"
       >
         <a
-          href={`https://wa.me/96872740404?text=${encodeURIComponent(
+          href={`https://wa.me/917903624701?text=${encodeURIComponent(
             `Hi DA Interiors! I have requested a design consultation for: ${state.selectedServices.map(s => serviceNames[s] || s).join(', ')} on ${formatDate(state.date)} at ${state.time}. Reference: ${state.bookingReference ?? 'pending'}, Name: ${state.name}, Phone: ${state.phone}`
           )}`}
           target="_blank"

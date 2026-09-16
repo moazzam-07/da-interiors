@@ -111,7 +111,7 @@ export function AboutClientPage() {
                       <div className="h-10 w-px bg-border/60 hidden sm:block" />
                       <div className="hidden sm:block">
                         <div className="text-base font-bold text-foreground leading-snug">
-                          270+ Projects Delivered
+                          275+ Projects Delivered
                         </div>
                         <p className="text-xs text-muted-foreground mt-0.5">
                           Turnkey Private Commissions
@@ -177,6 +177,97 @@ export function AboutClientPage() {
                 <p className="text-sm text-muted-foreground leading-relaxed font-normal">{val.desc}</p>
               </div>
             ))}
+          </div>
+        </SectionFrame>
+      </section>
+
+      {/* Studio Location & Contact Info */}
+      <section className="relative py-16 md:py-24 bg-background">
+        <SectionFrame>
+          <div className="max-w-5xl mx-auto px-4">
+            <div className="bg-surface-container-low border border-border/60 rounded-[2.5rem] p-8 md:p-12 shadow-xl relative overflow-hidden">
+              <div className="grid md:grid-cols-2 gap-10 items-center">
+                <div className="space-y-6">
+                  <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-accent/10 border border-accent/20 text-xs font-bold text-accent uppercase tracking-wider">
+                    <span>Google Verified Business</span>
+                  </div>
+                  <h2 className="text-3xl sm:text-4xl font-heading font-extrabold text-foreground tracking-tight">
+                    D A interior Design DSID
+                  </h2>
+                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                    <div className="flex items-center text-amber-500 font-bold">
+                      <span>★ 4.6</span>
+                    </div>
+                    <span>•</span>
+                    <span className="font-semibold text-foreground">56 Google reviews</span>
+                    <span>•</span>
+                    <span className="text-emerald-500 font-medium">Interior designer in Kolkata</span>
+                  </div>
+
+                  <div className="space-y-4 pt-2 text-sm">
+                    <div className="flex items-start gap-3 text-foreground/90">
+                      <span className="text-lg">📍</span>
+                      <div>
+                        <div className="font-bold text-xs uppercase tracking-wider text-muted-foreground mb-0.5">Address</div>
+                        <p className="leading-relaxed">
+                          93/2, Topsia Rd, near Kohinoor Market, near Sultan Sweet, Topsia, Kolkata, West Bengal 700039
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 text-foreground/90">
+                      <span className="text-lg">📞</span>
+                      <div>
+                        <div className="font-bold text-xs uppercase tracking-wider text-muted-foreground mb-0.5">Phone</div>
+                        <a href="tel:07903624701" className="font-bold text-accent hover:underline text-base">
+                          079036 24701
+                        </a>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 text-foreground/90">
+                      <span className="text-lg">⏰</span>
+                      <div>
+                        <div className="font-bold text-xs uppercase tracking-wider text-muted-foreground mb-0.5">Studio Hours</div>
+                        <p className="flex items-center gap-2">
+                          <span className="inline-block w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                          <span className="font-semibold text-emerald-600 dark:text-emerald-400">Open</span>
+                          <span className="text-muted-foreground">· Closes 10:00 PM</span>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Right Map Card & Action Buttons */}
+                <div className="flex flex-col gap-4 bg-background/80 backdrop-blur-md rounded-3xl p-6 border border-border/60">
+                  <div className="rounded-2xl overflow-hidden h-48 bg-surface-container-lowest relative border border-border/40 flex items-center justify-center text-center p-4">
+                    <div className="space-y-2">
+                      <div className="text-2xl">🗺️</div>
+                      <div className="font-bold text-sm text-foreground">Topsia Rd, Kolkata</div>
+                      <p className="text-xs text-muted-foreground">Near Kohinoor Market & Sultan Sweet</p>
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-3 pt-2">
+                    <a
+                      href="https://www.google.com/maps/search/?api=1&query=D+A+interior+Design+DSID+Topsia+Kolkata"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="py-3 px-4 rounded-xl bg-surface-container-high hover:bg-surface-container-highest text-foreground text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-1.5 transition-colors text-center border border-border"
+                    >
+                      Get Directions
+                    </a>
+                    <a
+                      href="tel:07903624701"
+                      className="py-3 px-4 rounded-xl bg-accent hover:bg-accent/90 text-primary-foreground text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-1.5 transition-all shadow-md text-center"
+                    >
+                      Call Now
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </SectionFrame>
       </section>
