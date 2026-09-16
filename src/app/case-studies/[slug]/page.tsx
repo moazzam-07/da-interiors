@@ -113,8 +113,7 @@ export default async function CaseStudyPage({ params }: { params: Params }) {
         },
         "aggregateRating": {
           "@type": "AggregateRating",
-          "ratingValue": "4.6",
-          "reviewCount": "56"
+          "ratingValue": "4.9"
         }
       }
     ]

@@ -175,8 +175,8 @@ export function Footer() {
                       <span>📞 079036 24701</span>
                     </a>
                     <div className="flex items-center gap-1.5 text-xs pt-0.5">
-                      <span className="text-amber-500 font-bold">★ 4.6</span>
-                      <span className="text-muted-foreground font-medium">(56 Google Reviews)</span>
+                      <span className="text-amber-500 font-bold">★ 4.9</span>
+                      <span className="text-muted-foreground font-medium">(Google Reviews)</span>
                     </div>
                   </div>
                 </div>

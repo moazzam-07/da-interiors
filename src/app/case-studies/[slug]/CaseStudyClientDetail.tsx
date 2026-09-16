@@ -461,7 +461,7 @@ export function CaseStudyClientDetail({ project }: CaseStudyClientDetailProps) {
                 <div>
                   <p className="font-semibold text-foreground">DA Interiors Kolkata Studio</p>
                   <p>93/2, Topsia Rd, Kolkata 700039</p>
-                  <p className="text-[10px] text-accent mt-0.5">⭐ 4.6 (56 Google Reviews) • 275+ Delivered</p>
+                  <p className="text-[10px] text-accent mt-0.5">⭐ 4.9 Google Rating • 275+ Delivered</p>
                 </div>
               </div>
             </div>

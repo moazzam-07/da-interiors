@@ -64,7 +64,7 @@ export const allServices: ServiceData[] = [
       { value: "275+", label: "Projects Delivered" },
       { value: "14", label: "Design Awards" },
       { value: "100%", label: "Turnkey Execution" },
-      { value: "4.6★", label: "Google Rating (56 Reviews)" },
+      { value: "4.9★", label: "Google Rating" },
     ],
     inclusions: [
       { icon: Ruler, title: "Spatial Reconfiguration", desc: "Optimizing floor plans, open-concept transitions, and sightlines." },

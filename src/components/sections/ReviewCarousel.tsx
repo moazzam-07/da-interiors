@@ -83,9 +83,9 @@ export function ReviewCarousel() {
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12 relative z-20 px-4 max-w-6xl mx-auto">
         <div className="max-w-2xl">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-surface-container-low border border-border text-xs font-semibold text-accent mb-3 tracking-wide uppercase">
-            <span className="text-amber-500 font-bold">★ 4.6</span>
+            <span className="text-amber-500 font-bold">★ 4.9</span>
             <span className="text-muted-foreground">•</span>
-            <span>56 Google Reviews</span>
+            <span>Google Reviews</span>
           </div>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-foreground tracking-tight text-left">
             Trusted by discerning homeowners

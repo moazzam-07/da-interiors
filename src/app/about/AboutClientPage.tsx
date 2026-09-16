@@ -196,10 +196,10 @@ export function AboutClientPage() {
                   </h2>
                   <div className="flex items-center gap-2 text-sm text-muted-foreground">
                     <div className="flex items-center text-amber-500 font-bold">
-                      <span>★ 4.6</span>
+                      <span>★ 4.9</span>
                     </div>
                     <span>•</span>
-                    <span className="font-semibold text-foreground">56 Google reviews</span>
+                    <span className="font-semibold text-foreground">Google reviews</span>
                     <span>•</span>
                     <span className="text-emerald-500 font-medium">Interior designer in Kolkata</span>
                   </div>

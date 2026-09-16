@@ -86,8 +86,8 @@ export function CaseStudiesClientIndex() {
                 <div className="text-xs text-muted-foreground font-medium uppercase tracking-wider mt-0.5">Projects Delivered</div>
               </div>
               <div>
-                <div className="text-2xl sm:text-3xl font-heading font-extrabold text-accent">★ 4.6</div>
-                <div className="text-xs text-muted-foreground font-medium uppercase tracking-wider mt-0.5">56 Google Reviews</div>
+                <div className="text-2xl sm:text-3xl font-heading font-extrabold text-accent">★ 4.9</div>
+                <div className="text-xs text-muted-foreground font-medium uppercase tracking-wider mt-0.5">Google Rating</div>
               </div>
               <div>
                 <div className="text-2xl sm:text-3xl font-heading font-extrabold text-foreground">0.5mm</div>

@@ -13,7 +13,7 @@ const services = [
     imageSrc: "/images/da/user_uploads/upload_15.jpeg",
     stats: [
       { label: "Projects Delivered", value: "275+" },
-      { label: "Google Rating", value: "4.6★" },
+      { label: "Google Rating", value: "4.9★" },
     ],
   },
   {

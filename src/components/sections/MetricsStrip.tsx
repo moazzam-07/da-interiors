@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 const metrics = [
   { value: "275+", label: "Projects Delivered", suffix: "" },
-  { value: "4.6", label: "Google Rating (56 Reviews)", suffix: "★" },
+  { value: "4.9", label: "Google Rating", suffix: "★" },
   { value: "100%", label: "Turnkey Execution", suffix: "" },
   { value: "14", label: "Design Accolades", suffix: "" },
 ];
