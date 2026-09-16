@@ -21,6 +21,13 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://dainteriors.in"),
   title: "DA Interiors | Bespoke Architecture & Luxury Living",
   description: "Curating timeless architectural sanctuaries, private penthouses, and bespoke residential spaces with refined natural materials and turnkey precision.",
+  icons: {
+    icon: [
+      { url: "/icon.svg", type: "image/svg+xml" },
+    ],
+    shortcut: "/icon.svg",
+    apple: "/icon.svg",
+  },
 };
 
 export default function RootLayout({
