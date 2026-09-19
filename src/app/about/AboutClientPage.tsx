@@ -102,7 +102,7 @@ export function AboutClientPage() {
                     <div className="flex items-center gap-4 justify-between sm:justify-start">
                       <div>
                         <div className="text-2xl sm:text-3xl font-heading font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-accent to-primary">
-                          Est. 2018
+                          Est. 2002
                         </div>
                         <div className="text-[11px] font-bold text-muted-foreground uppercase tracking-wider mt-0.5">
                           Studio Established

@@ -57,7 +57,7 @@ export function AboutSection() {
                 <div className="bg-background/90 backdrop-blur-md rounded-2xl p-5 border border-white/20 shadow-xl">
                   <div className="flex items-center gap-4">
                     <div className="text-3xl font-heading font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-accent to-primary">
-                      Est. 2018
+                      Est. 2002
                     </div>
                     <div className="h-10 w-px bg-border/60" />
                     <p className="text-sm text-muted-foreground leading-snug">
