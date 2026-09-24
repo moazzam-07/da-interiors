@@ -65,16 +65,16 @@ export default async function CaseStudyPage({ params }: { params: Params }) {
     "@graph": [
       {
         "@type": "CreativeWork",
-        "@id": `https://dainteriors.in/case-studies/${project.slug}#project`,
+        "@id": `https://dainterior.in/case-studies/${project.slug}#project`,
         "name": project.title,
         "headline": project.subtitle,
         "description": project.summary,
-        "image": `https://dainteriors.in${project.heroImage}`,
+        "image": `https://dainterior.in${project.heroImage}`,
         "dateCreated": `${project.yearCompleted}-01-15`,
         "creator": {
           "@type": "Organization",
           "name": "DA Interiors (DSID)",
-          "url": "https://dainteriors.in",
+          "url": "https://dainterior.in",
           "telephone": "+91 79036 24701",
           "address": {
             "@type": "PostalAddress",
@@ -98,9 +98,9 @@ export default async function CaseStudyPage({ params }: { params: Params }) {
       },
       {
         "@type": "HomeAndConstructionBusiness",
-        "@id": "https://dainteriors.in/#business",
+        "@id": "https://dainterior.in/#business",
         "name": "D A interior Design DSID",
-        "url": "https://dainteriors.in",
+        "url": "https://dainterior.in",
         "telephone": "+91 79036 24701",
         "priceRange": "$$$$",
         "address": {

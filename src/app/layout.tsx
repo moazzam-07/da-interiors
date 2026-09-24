@@ -18,7 +18,7 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://dainteriors.in"),
+  metadataBase: new URL("https://dainterior.in"),
   title: "DA Interiors | Bespoke Architecture & Luxury Living",
   description: "Curating timeless architectural sanctuaries, private penthouses, and bespoke residential spaces with refined natural materials and turnkey precision.",
   icons: {

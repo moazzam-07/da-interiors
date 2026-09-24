@@ -45,7 +45,7 @@ const channels = [
   },
   {
     name: 'Studio Email Inquiries',
-    email: 'concierge@dainteriors.com',
+    email: 'concierge@dainterior.in',
     subtitle: 'Press, architectural portfolios & official requests',
     icon: Mail,
     badge: 'Direct Email',

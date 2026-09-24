@@ -563,7 +563,7 @@ const svgVisitingCardBack = `
       <!-- Col 3: Portfolio & Rating -->
       <g transform="translate(680, 0)">
         <text x="0" y="0" fill="#C29D6D" font-family="'Segoe UI', Arial" font-size="12" font-weight="700" letter-spacing="3">PORTFOLIO &amp; WEBSITE</text>
-        <text x="0" y="32" fill="#1C1917" font-family="'Segoe UI', Arial" font-size="20" font-weight="800">dainteriors.in</text>
+        <text x="0" y="32" fill="#1C1917" font-family="'Segoe UI', Arial" font-size="20" font-weight="800">dainterior.in</text>
         <text x="0" y="58" fill="#10B981" font-family="'Segoe UI', Arial" font-size="14" font-weight="700">★ 4.9 Google Rating • 275+ Projects</text>
       </g>
     </g>

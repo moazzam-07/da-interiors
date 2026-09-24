@@ -184,7 +184,7 @@ export function PrivacyPolicyClient() {
                   <strong>Studio Office:</strong> 93/2, Topsia Rd, near Kohinoor Market, near Sultan Sweet, Topsia, Kolkata, West Bengal 700039, India.
                 </div>
                 <p>
-                  This policy governs personal data collected via our website (<a href="https://dainteriors.in" className="text-accent underline font-medium">dainteriors.in</a>), phone consultations, WhatsApp business communications, on-site surveys, and architectural service contracts.
+                  This policy governs personal data collected via our website (<a href="https://dainterior.in" className="text-accent underline font-medium">dainterior.in</a>), phone consultations, WhatsApp business communications, on-site surveys, and architectural service contracts.
                 </p>
               </article>
 

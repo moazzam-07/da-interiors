@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     title: "Privacy Policy & Discretion | DA Interiors",
     description:
       "Our unconditional commitment to client privacy, proprietary floorplan confidentiality, and architectural discretion in Kolkata.",
-    url: "https://dainteriors.in/privacy-policy",
+    url: "https://dainterior.in/privacy-policy",
   },
   alternates: {
     canonical: "/privacy-policy",
