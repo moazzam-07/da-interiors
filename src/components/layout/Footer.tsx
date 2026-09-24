@@ -193,7 +193,7 @@ export function Footer() {
               © {currentYear} DA Interiors Studio. All rights reserved.
             </p>
             <div className="flex flex-row gap-6 font-medium text-foreground/70">
-              <button onClick={() => setActiveLegalModal('privacy')} className="hover:text-accent transition-colors cursor-pointer">Privacy Policy</button>
+              <Link href="/privacy-policy" className="hover:text-accent transition-colors cursor-pointer">Privacy Policy</Link>
               <button onClick={() => setActiveLegalModal('terms')} className="hover:text-accent transition-colors cursor-pointer">Terms of Service</button>
             </div>
           </div>
